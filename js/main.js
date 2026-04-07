@@ -453,6 +453,22 @@ function initRSVPForm() {
       submitBtn.textContent = '...';
     }
 
+    // Serialize guest rows into the hidden textarea before submitting
+    const guestsTextarea = form.querySelector('textarea[name="guests"]');
+    if (guestsTextarea) {
+      const rows = [...guestRows.querySelectorAll('.guest-row')];
+      if (rows.length) {
+        guestsTextarea.value = rows.map((row, i) => {
+          const name    = row.querySelector('input[type="text"]')?.value || '';
+          const type    = row.querySelector('input[type="radio"]:checked')?.value || '';
+          const dietary = row.querySelector('.guest-row-dietary input')?.value || '';
+          return `${i + 1}. ${name} (${type})${dietary ? ' — ' + dietary : ''}`;
+        }).join('\n');
+      } else {
+        guestsTextarea.value = '';
+      }
+    }
+
     try {
       const data = new URLSearchParams(new FormData(form)).toString();
       const response = await fetch('/', {
