@@ -650,6 +650,23 @@ function initFAQ() {
   });
 }
 
+/* ── Timeline slot equalizer ──────────────────────── */
+function equalizeTimelineSlots() {
+  if (window.innerWidth <= 600) return;
+  const tops    = document.querySelectorAll('.timeline-h-top');
+  const bottoms = document.querySelectorAll('.timeline-h-bottom');
+
+  // Reset so we measure natural height
+  tops.forEach(el => el.style.height = '');
+  bottoms.forEach(el => el.style.height = '');
+
+  const maxTop    = Math.max(...[...tops].map(el => el.offsetHeight));
+  const maxBottom = Math.max(...[...bottoms].map(el => el.offsetHeight));
+
+  tops.forEach(el => el.style.height = maxTop + 'px');
+  bottoms.forEach(el => el.style.height = maxBottom + 'px');
+}
+
 /* ── Init ─────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initLanguage();
@@ -660,4 +677,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initRSVPForm();
   initActiveNav();
   initFAQ();
+  equalizeTimelineSlots();
+  window.addEventListener('resize', equalizeTimelineSlots);
 });

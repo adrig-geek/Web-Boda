@@ -1047,9 +1047,11 @@ section:nth-child(even) {
 /* ── Timeline — Horizontal ────────────────────────── */
 .timeline-h-wrap {
   overflow-x: auto;
+  overflow-y: visible;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   padding-inline: clamp(16px, 4vw, 40px);
+  padding-top: 8px;
 }
 
 .timeline-h-wrap::-webkit-scrollbar { display: none; }
@@ -1087,11 +1089,12 @@ section:nth-child(even) {
 
 .timeline-h-top,
 .timeline-h-bottom {
-  height: 110px;
+  min-height: 110px;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  overflow: visible;
 }
 
 /* top slot: content sits at bottom, stem at bottom */
