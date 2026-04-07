@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Èlia &amp; Adrián — 12.09.2027</title>
+  <meta name="description" content="Us convidem al casament d'Èlia i Adrián el 12 de setembre de 2027 a Can Ribas de Montbui, Bigues i Riells." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Èlia & Adrián — 12.09.2027" />
+  <meta property="og:description" content="Us convidem al nostre casament!" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- noscript fallback: show all fade-in elements -->
+  <noscript>
+    <style>
+      .fade-in { opacity: 1 !important; transform: none !important; }
+      .nav-links { display: flex !important; }
+      .hamburger { display: none !important; }
+    </style>
+  </noscript>
+</head>
+<body>
+
+  <!-- ── Navigation ──────────────────────────────── -->
+  <header>
+    <nav class="nav" role="navigation" aria-label="Navegació principal">
+      <div class="container nav-inner">
+        <a href="#hero" class="nav-logo">
+          <img src="assets/images/logo.png" alt="Èlia &amp; Adrián" />
+        </a>
+
+        <ul class="nav-links" role="list">
+          <li><a href="#nostra-historia" data-i18n="nav-story">La Nostra Història</a></li>
+          <li><a href="#detalls" data-i18n="nav-details">Detalls</a></li>
+          <li><a href="#rsvp" data-i18n="nav-rsvp">RSVP</a></li>
+          <li><a href="#programa" data-i18n="nav-timeline">Programa</a></li>
+          <li><a href="#novetats" data-i18n="nav-news">Novetats</a></li>
+        </ul>
+
+        <div class="nav-right">
+          <button
+            class="lang-toggle"
+            id="lang-toggle"
+            aria-label="Canvia l'idioma a Espanyol"
+          >ES</button>
+
+          <button
+            class="hamburger"
+            id="hamburger"
+            aria-label="Obrir menú"
+            aria-expanded="false"
+            aria-controls="nav-overlay"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile overlay nav -->
+    <div id="nav-overlay" class="nav-overlay" role="dialog" aria-modal="true" aria-label="Menú de navegació">
+      <a href="#nostra-historia" data-i18n="nav-story">La Nostra Història</a>
+      <a href="#detalls" data-i18n="nav-details">Detalls</a>
+      <a href="#rsvp" data-i18n="nav-rsvp">RSVP</a>
+      <a href="#programa" data-i18n="nav-timeline">Programa</a>
+      <a href="#novetats" data-i18n="nav-news">Novetats</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── Hero ──────────────────────────────────── -->
+    <section id="hero" aria-label="Portada">
+
+      <!-- Background image (illustrated/drawn via CSS filters) -->
+      <!-- Save your photo as: assets/images/hero.jpg -->
+      <div class="hero-bg" aria-hidden="true">
+        <img src="assets/images/hero.jpg" alt="" />
+      </div>
+
+      <!-- Hero content -->
+      <div class="hero-content">
+        <p class="hero-eyebrow" data-i18n="hero-eyebrow">Us convidem al nostre casament</p>
+
+        <h1 class="hero-names">
+          Èlia <span class="ampersand">&amp;</span> Adrián
+        </h1>
+
+        <div class="hero-divider" aria-hidden="true"></div>
+
+        <p class="hero-date" data-i18n="hero-date">12 de setembre de 2027</p>
+        <p class="hero-venue" data-i18n="hero-venue">Can Ribas de Montbui · Bigues i Riells</p>
+
+        <!-- Countdown -->
+        <div class="countdown" aria-label="Compte enrere">
+          <div class="countdown-item">
+            <span class="countdown-number" id="cd-days">--</span>
+            <span class="countdown-label" data-i18n="countdown-days">Dies</span>
+          </div>
+          <span class="countdown-sep" aria-hidden="true">:</span>
+          <div class="countdown-item">
+            <span class="countdown-number" id="cd-hours">--</span>
+            <span class="countdown-label" data-i18n="countdown-hours">Hores</span>
+          </div>
+          <span class="countdown-sep" aria-hidden="true">:</span>
+          <div class="countdown-item">
+            <span class="countdown-number" id="cd-minutes">--</span>
+            <span class="countdown-label" data-i18n="countdown-minutes">Minuts</span>
+          </div>
+          <span class="countdown-sep" aria-hidden="true">:</span>
+          <div class="countdown-item">
+            <span class="countdown-number" id="cd-seconds">--</span>
+            <span class="countdown-label" data-i18n="countdown-seconds">Segons</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll cue -->
+      <div class="scroll-cue" aria-hidden="true">
+        <div class="scroll-cue-line"></div>
+        <span class="scroll-cue-text" data-i18n="scroll-cue">Descobreix</span>
+      </div>
+    </section>
+
+    <!-- ── Our Story ──────────────────────────────── -->
+    <section id="nostra-historia" aria-labelledby="story-heading">
+      <div class="container">
+        <div class="section-header fade-in" style="text-align:center">
+          <span class="section-label" data-i18n="story-label">La nostra història</span>
+          <h2 class="section-title" id="story-heading" data-i18n="story-title">Com va començar tot</h2>
+        </div>
+
+        <div class="story-content fade-in">
+          <p data-i18n="story-p1">Aquí podeu escriure la vostra història: on us vàreu conèixer, quin va ser el primer moment especial, com va créixer l'amor entre vosaltres.</p>
+          <p data-i18n="story-p2">Cada parella té una història única i especial. Compartiu els moments que us han portat fins aquí, i que faran que els vostres convidats se sentin part de la vostra aventura.</p>
+          <p data-i18n="story-p3">Gràcies per ser part del nostre dia més especial.</p>
+        </div>
+
+        <!-- Optional photos — add your own images to assets/images/ -->
+        <div class="story-photo-grid fade-in">
+          <figure>
+            <!-- Replace src with your photo path: assets/images/photo1.jpg -->
+            <div class="story-photo-placeholder">
+              <span data-i18n="story-photo-1">Foto 1</span>
+            </div>
+          </figure>
+          <figure>
+            <!-- Replace src with your photo path: assets/images/photo2.jpg -->
+            <div class="story-photo-placeholder">
+              <span data-i18n="story-photo-2">Foto 2</span>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Event Details ──────────────────────────── -->
+    <section id="detalls" aria-labelledby="details-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label" data-i18n="details-label">On i quan</span>
+          <h2 class="section-title" id="details-heading" data-i18n="details-title">Els detalls de la celebració</h2>
+        </div>
+
+        <div class="event-cards">
+          <!-- Ceremony card -->
+          <div class="event-card fade-in">
+            <!-- Interlocked rings with heart — like the invitation -->
+            <svg class="event-card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <!-- Heart -->
+              <path d="M24 16 C24 16 21 10 17 12.5 C13 15 14.5 21 24 26 C33.5 21 35 15 31 12.5 C27 10 24 16 24 16 Z"/>
+              <!-- Left ring -->
+              <circle cx="17" cy="34" r="9"/>
+              <!-- Right ring -->
+              <circle cx="31" cy="34" r="9"/>
+            </svg>
+            <span class="event-card-label" data-i18n="ceremony-label">Cerimònia</span>
+            <h3 class="event-card-title" data-i18n="ceremony-title">L'Enllaç</h3>
+            <div class="event-card-info">
+              <div class="event-card-info-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <span data-i18n="ceremony-time">13:00 h</span>
+              </div>
+              <div class="event-card-info-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                </svg>
+                <span data-i18n="ceremony-address">Can Ribas de Montbui, Bigues i Riells del Vallès</span>
+              </div>
+              <div class="event-card-info-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                </svg>
+                <span data-i18n="ceremony-note">Us preguem que estigueu al lloc a les 12:30 h</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reception card -->
+          <div class="event-card fade-in">
+            <!-- Champagne flutes clinking — like the invitation -->
+            <svg class="event-card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <!-- Left flute -->
+              <path d="M14 6 L20 6 L17 22 Z"/>
+              <line x1="17" y1="22" x2="17" y2="38"/>
+              <line x1="12" y1="38" x2="22" y2="38"/>
+              <!-- Right flute -->
+              <path d="M28 6 L34 6 L31 22 Z"/>
+              <line x1="31" y1="22" x2="31" y2="38"/>
+              <line x1="26" y1="38" x2="36" y2="38"/>
+              <!-- Clink sparkle at top -->
+              <path d="M22 4 L24 2 L26 4"/>
+              <line x1="24" y1="2" x2="24" y2="5"/>
+            </svg>
+            <span class="event-card-label" data-i18n="reception-label">Celebració</span>
+            <h3 class="event-card-title" data-i18n="reception-title">El Banquet</h3>
+            <div class="event-card-info">
+              <div class="event-card-info-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <span data-i18n="reception-time">14:00 h</span>
+              </div>
+              <div class="event-card-info-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                </svg>
+                <span data-i18n="reception-address">Can Ribas de Montbui, Bigues i Riells del Vallès</span>
+              </div>
+              <div class="event-card-info-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                </svg>
+                <span data-i18n="reception-note">Dinar, ball i molt més per celebrar!</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map button -->
+        <div class="fade-in">
+          <a
+            href="https://maps.google.com/?q=Can+Ribas+de+Montbui,+Bigues+i+Riells+del+Vallès"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="map-btn"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z" />
+            </svg>
+            <span data-i18n="map-btn">Veure al mapa</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── RSVP ───────────────────────────────────── -->
+    <section id="rsvp" aria-labelledby="rsvp-heading">
+      <div class="container">
+        <div class="rsvp-inner">
+          <div class="section-header fade-in">
+            <span class="section-label" data-i18n="rsvp-label">Confirmació</span>
+            <h2 class="section-title" id="rsvp-heading" data-i18n="rsvp-title">Confirmeu la vostra assistència</h2>
+          </div>
+
+          <p class="rsvp-intro fade-in" data-i18n="rsvp-intro">
+            Si us plau, confirmeu la vostra assistència abans del 12 de juny de 2027.
+          </p>
+
+          <!-- Success message (hidden until form submitted) -->
+          <div id="rsvp-success" class="rsvp-success" role="alert" aria-live="polite">
+            <svg class="rsvp-success-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+            <h3 data-i18n="rsvp-success-title">Moltes gràcies!</h3>
+            <p data-i18n="rsvp-success-text">Hem rebut la vostra confirmació. Us esperem!</p>
+          </div>
+
+          <!-- RSVP Form -->
+          <!-- ACTION: Replace YOUR_FORM_ID with your Formspree form ID -->
+          <form
+            id="rsvp-form"
+            class="rsvp-form fade-in"
+            action="https://formspree.io/f/YOUR_FORM_ID"
+            method="POST"
+            data-netlify="true"
+          >
+            <input type="hidden" name="_subject" value="RSVP — Casament Èlia &amp; Adrián" />
+
+            <!-- Attendance -->
+            <div class="form-group">
+              <label data-i18n="rsvp-att-label">Assistireu?</label>
+              <div class="radio-group" role="radiogroup" aria-labelledby="rsvp-att-label">
+                <label class="radio-option">
+                  <input type="radio" name="attendance" value="yes" required />
+                  <span data-i18n="rsvp-att-yes">Sí, hi aniré</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="attendance" value="no" required />
+                  <span data-i18n="rsvp-att-no">No podré assistir</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Guest list (shown only when attending) -->
+            <div class="guests-list-field" id="guests-field">
+              <span class="guests-list-label" data-i18n="rsvp-guests-label">Personas que asistirán</span>
+              <div class="guest-rows" id="guest-rows"></div>
+              <button type="button" class="add-guest-btn" id="add-guest-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+                </svg>
+                <span data-i18n="rsvp-add-guest">Añadir persona</span>
+              </button>
+            </div>
+
+            <!-- Message -->
+            <div class="form-group">
+              <label for="rsvp-message" data-i18n="rsvp-message-label">Missatge per als nuvis</label>
+              <textarea
+                id="rsvp-message"
+                name="message"
+                data-i18n-ph="rsvp-message-ph"
+                placeholder="Deixeu-nos un missatge!"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" data-i18n="rsvp-submit">
+              Confirmar assistència
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Timeline ───────────────────────────────── -->
+    <section id="programa" aria-labelledby="timeline-heading">
+      <div class="container">
+        <div class="section-header fade-in" style="text-align:center">
+          <span class="section-label" data-i18n="timeline-label">El dia</span>
+          <h2 class="section-title" id="timeline-heading" data-i18n="timeline-title">El programa</h2>
+        </div>
+
+        <ul class="timeline" role="list">
+          <!-- Item 0 — 12:30 Apertura -->
+          <li class="timeline-item fade-in">
+            <div class="timeline-item-left">
+              <div class="timeline-time">12:30</div>
+            </div>
+            <div class="timeline-item-dot" aria-hidden="true">
+              <div class="timeline-dot-inner">♥</div>
+            </div>
+            <div class="timeline-item-right">
+              <div class="timeline-desc">
+                <strong data-i18n="tl-0-title">Obertura de portes</strong>
+                <span data-i18n="tl-0-desc">Rebuda i benvinguda als convidats</span>
+              </div>
+            </div>
+          </li>
+
+          <!-- Item 1 — 13:00 Cerimònia -->
+          <li class="timeline-item fade-in">
+            <div class="timeline-item-left">
+              <div class="timeline-desc">
+                <strong data-i18n="tl-1-title">Diem sí, vull!</strong>
+                <span data-i18n="tl-1-desc">La cerimònia</span>
+              </div>
+            </div>
+            <div class="timeline-item-dot" aria-hidden="true">
+              <div class="timeline-dot-inner">♥</div>
+            </div>
+            <div class="timeline-item-right">
+              <div class="timeline-time">13:00</div>
+            </div>
+          </li>
+
+          <!-- Item 2 — 14:00 Aperitiu -->
+          <li class="timeline-item fade-in">
+            <div class="timeline-item-left">
+              <div class="timeline-time">14:00</div>
+            </div>
+            <div class="timeline-item-dot" aria-hidden="true">
+              <div class="timeline-dot-inner">♥</div>
+            </div>
+            <div class="timeline-item-right">
+              <div class="timeline-desc">
+                <strong data-i18n="tl-2-title">Aperitiu</strong>
+                <span data-i18n="tl-2-desc">Còctel al jardí</span>
+              </div>
+            </div>
+          </li>
+
+          <!-- Item 3 — 16:00 Dinar -->
+          <li class="timeline-item fade-in">
+            <div class="timeline-item-left">
+              <div class="timeline-desc">
+                <strong data-i18n="tl-3-title">A dinar!</strong>
+                <span data-i18n="tl-3-desc">Menú de celebració</span>
+              </div>
+            </div>
+            <div class="timeline-item-dot" aria-hidden="true">
+              <div class="timeline-dot-inner">♥</div>
+            </div>
+            <div class="timeline-item-right">
+              <div class="timeline-time">16:00</div>
+            </div>
+          </li>
+
+          <!-- Item 4 — 19:00 Ball -->
+          <li class="timeline-item fade-in">
+            <div class="timeline-item-left">
+              <div class="timeline-time">19:00</div>
+            </div>
+            <div class="timeline-item-dot" aria-hidden="true">
+              <div class="timeline-dot-inner">♥</div>
+            </div>
+            <div class="timeline-item-right">
+              <div class="timeline-desc">
+                <strong data-i18n="tl-4-title">A ballar!</strong>
+                <span data-i18n="tl-4-desc">Música i ball fins a la matinada</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ── News ──────────────────────────────────── -->
+    <section id="novetats" aria-labelledby="news-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label" data-i18n="news-label">Novetats</span>
+          <h2 class="section-title" id="news-heading" data-i18n="news-title">Informació per als convidats</h2>
+        </div>
+
+        <div class="news-grid">
+          <article class="news-card fade-in">
+            <time class="news-card-date" data-i18n="news-1-date">Febrer 2027</time>
+            <h3 class="news-card-title" data-i18n="news-1-title">Transport des de Barcelona</h3>
+            <p class="news-card-body" data-i18n="news-1-body">Organitzem autobusos d'anada i tornada des de Barcelona. Aviat us donarem més informació sobre horaris i punts de recollida.</p>
+          </article>
+
+          <article class="news-card fade-in">
+            <time class="news-card-date" data-i18n="news-2-date">Gener 2027</time>
+            <h3 class="news-card-title" data-i18n="news-2-title">Allotjament recomanat</h3>
+            <p class="news-card-body" data-i18n="news-2-body">Hem reservat blocs d'habitacions en hotels propers. Poseu-vos en contacte amb nosaltres si necessiteu ajuda per trobar allotjament.</p>
+          </article>
+
+          <article class="news-card fade-in">
+            <time class="news-card-date" data-i18n="news-3-date">Desembre 2026</time>
+            <h3 class="news-card-title" data-i18n="news-3-title">Codi de vestimenta</h3>
+            <p class="news-card-body" data-i18n="news-3-body">L'estil és elegant però còmode. Tingueu en compte que la celebració es farà en part a l'aire lliure.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ────────────────────────────────────── -->
+  <footer>
+    <p class="footer-names">Èlia &amp; Adrián</p>
+    <p class="footer-info" data-i18n="footer-info">12 de setembre de 2027 · Can Ribas de Montbui, Bigues i Riells</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
