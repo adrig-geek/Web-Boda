@@ -279,6 +279,9 @@
           <p class="rsvp-intro fade-in" data-i18n="rsvp-intro">
             Si us plau, confirmeu la vostra assistència abans del 12 de juny de 2027.
           </p>
+          <div class="rsvp-deadline fade-in" aria-live="polite">
+            <span id="rsvp-deadline-badge" class="rsvp-deadline-badge"></span>
+          </div>
 
           <!-- Success message (hidden until form submitted) -->
           <div id="rsvp-success" class="rsvp-success" role="alert" aria-live="polite">
@@ -461,7 +464,7 @@
       </div>
     </section>
 
-    <!-- ── News ──────────────────────────────────── -->
+    <!-- ── Guest Info ────────────────────────────── -->
     <section id="novetats" aria-labelledby="news-heading">
       <div class="container">
         <div class="section-header fade-in">
@@ -469,25 +472,103 @@
           <h2 class="section-title" id="news-heading" data-i18n="news-title">Informació per als convidats</h2>
         </div>
 
-        <div class="news-grid">
-          <article class="news-card fade-in">
-            <time class="news-card-date" data-i18n="news-1-date">Febrer 2027</time>
-            <h3 class="news-card-title" data-i18n="news-1-title">Transport des de Barcelona</h3>
-            <p class="news-card-body" data-i18n="news-1-body">Organitzem autobusos d'anada i tornada des de Barcelona. Aviat us donarem més informació sobre horaris i punts de recollida.</p>
-          </article>
+        <div class="info-cards">
 
-          <article class="news-card fade-in">
-            <time class="news-card-date" data-i18n="news-2-date">Gener 2027</time>
-            <h3 class="news-card-title" data-i18n="news-2-title">Allotjament recomanat</h3>
-            <p class="news-card-body" data-i18n="news-2-body">Hem reservat blocs d'habitacions en hotels propers. Poseu-vos en contacte amb nosaltres si necessiteu ajuda per trobar allotjament.</p>
-          </article>
+          <!-- Transport card -->
+          <div class="info-card fade-in">
+            <div class="info-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="14" width="40" height="22" rx="4"/>
+                <path d="M4 20h40"/>
+                <circle cx="13" cy="38" r="3"/><circle cx="35" cy="38" r="3"/>
+                <path d="M13 36v2m22-2v2M4 26h4m32 0h4"/>
+              </svg>
+            </div>
+            <h3 class="info-card-title" data-i18n="news-1-title">Transport des de Barcelona</h3>
+            <p class="info-card-body" data-i18n="news-1-body">Organitzem autobusos d'anada i tornada des de Barcelona. Aviat us donarem més informació sobre horaris i punts de recollida.</p>
+            <div class="info-card-meta">
+              <span class="info-card-chip" data-i18n="info-transport-chip">Anada i tornada inclosa</span>
+            </div>
+          </div>
 
-          <article class="news-card fade-in">
-            <time class="news-card-date" data-i18n="news-3-date">Desembre 2026</time>
-            <h3 class="news-card-title" data-i18n="news-3-title">Codi de vestimenta</h3>
-            <p class="news-card-body" data-i18n="news-3-body">L'estil és elegant però còmode. Tingueu en compte que la celebració es farà en part a l'aire lliure.</p>
-          </article>
+          <!-- Accommodation card -->
+          <div class="info-card fade-in">
+            <div class="info-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 40V16l16-8 16 8v24"/>
+                <path d="M18 40v-8h12v8"/>
+                <rect x="18" y="20" width="5" height="5" rx="1"/>
+                <rect x="25" y="20" width="5" height="5" rx="1"/>
+              </svg>
+            </div>
+            <h3 class="info-card-title" data-i18n="news-2-title">Allotjament recomanat</h3>
+            <p class="info-card-body" data-i18n="news-2-body">Hem reservat blocs d'habitacions en hotels propers. Poseu-vos en contacte amb nosaltres si necessiteu ajuda per trobar allotjament.</p>
+            <div class="info-card-meta">
+              <span class="info-card-chip" data-i18n="info-hotel-chip">Preu especial per a convidats</span>
+            </div>
+          </div>
+
+          <!-- Dress code card -->
+          <div class="info-card fade-in">
+            <div class="info-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 6l-8 10h8v26h16V16h8L32 6"/>
+                <path d="M16 6c0 4.4 3.6 8 8 8s8-3.6 8-8"/>
+              </svg>
+            </div>
+            <h3 class="info-card-title" data-i18n="news-3-title">Codi de vestimenta</h3>
+            <p class="info-card-body" data-i18n="news-3-body">L'estil és elegant però còmode. Tingueu en compte que la celebració es farà en part a l'aire lliure.</p>
+            <div class="info-card-meta">
+              <span class="info-card-chip" data-i18n="info-dress-chip">Elegant · Còmode · Exterior</span>
+            </div>
+          </div>
+
         </div>
+
+        <!-- ── FAQ Accordion ──────────────────────── -->
+        <div class="faq-wrap fade-in">
+          <h3 class="faq-heading" data-i18n="faq-heading">Preguntes freqüents</h3>
+          <dl class="faq">
+
+            <div class="faq-item">
+              <dt>
+                <button class="faq-btn" aria-expanded="false" data-i18n="faq-1-q">Hi ha aparcament al lloc?</button>
+              </dt>
+              <dd class="faq-answer">
+                <p data-i18n="faq-1-a">Sí, Can Ribas de Montbui disposa d'aparcament gratuït per als convidats. Us recomanem arribar uns minuts abans per aparcar còmodament.</p>
+              </dd>
+            </div>
+
+            <div class="faq-item">
+              <dt>
+                <button class="faq-btn" aria-expanded="false" data-i18n="faq-2-q">Els nens hi poden assistir?</button>
+              </dt>
+              <dd class="faq-answer">
+                <p data-i18n="faq-2-a">Sí, els nens són benvinguts. Si veniu amb infants, indiqueu-ho al formulari RSVP per poder organitzar-nos millor.</p>
+              </dd>
+            </div>
+
+            <div class="faq-item">
+              <dt>
+                <button class="faq-btn" aria-expanded="false" data-i18n="faq-3-q">Quina és la llista de noces?</button>
+              </dt>
+              <dd class="faq-answer">
+                <p data-i18n="faq-3-a">La vostra presència ja és el millor regal. Si voleu fer-nos un obsequi, tenim una llista de noces — contacteu-nos i us enviarem els detalls.</p>
+              </dd>
+            </div>
+
+            <div class="faq-item">
+              <dt>
+                <button class="faq-btn" aria-expanded="false" data-i18n="faq-4-q">Hi ha restriccions alimentàries?</button>
+              </dt>
+              <dd class="faq-answer">
+                <p data-i18n="faq-4-a">Indiqueu qualsevol al·lèrgia o restricció alimentària al formulari RSVP i el cuiner en tindrà cura.</p>
+              </dd>
+            </div>
+
+          </dl>
+        </div>
+
       </div>
     </section>
 

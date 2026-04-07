@@ -196,6 +196,25 @@ ul {
   color: var(--color-text);
 }
 
+.nav-links a.is-active {
+  color: var(--color-text);
+}
+
+.nav-links a.is-active::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: var(--color-accent);
+  margin-top: 2px;
+  transform-origin: left;
+  animation: navUnderline 0.25s ease forwards;
+}
+
+@keyframes navUnderline {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
 .nav-right {
   display: flex;
   align-items: center;
@@ -662,7 +681,7 @@ section:nth-child(even) {
 .rsvp-intro {
   text-align: center;
   color: var(--color-text-muted);
-  margin-bottom: clamp(40px, 5vw, 56px);
+  margin-bottom: 16px;
   font-size: 16px;
 }
 
@@ -1129,47 +1148,172 @@ section:nth-child(even) {
   margin-bottom: 2px;
 }
 
-/* ── News Section ─────────────────────────────────── */
-.news-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
+/* ── RSVP Deadline Badge ──────────────────────────── */
+.rsvp-deadline {
+  text-align: center;
+  margin-bottom: clamp(32px, 5vw, 48px);
 }
 
-.news-card {
+.rsvp-deadline-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  padding: 6px 18px;
+}
+
+.rsvp-deadline-urgent {
+  color: #8B3A3A;
+  background: #FDF0F0;
+  border-color: #D9AEAE;
+}
+
+/* ── Info Cards (C) ───────────────────────────────── */
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: clamp(48px, 7vw, 80px);
+}
+
+.info-card {
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
   padding: clamp(24px, 3vw, 36px);
   background: var(--color-bg);
   transition: border-color var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.news-card:hover {
+.info-card:hover {
   border-color: var(--color-accent);
 }
 
-.news-card-date {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+.info-card-icon {
+  width: 44px;
+  height: 44px;
   color: var(--color-accent);
-  display: block;
-  margin-bottom: 12px;
 }
 
-.news-card-title {
+.info-card-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.info-card-title {
   font-family: var(--font-display);
-  font-size: clamp(20px, 2.5vw, 26px);
+  font-size: clamp(18px, 2vw, 22px);
   font-weight: 400;
   line-height: 1.2;
-  margin-bottom: 12px;
 }
 
-.news-card-body {
+.info-card-body {
   font-size: 15px;
   color: var(--color-text-muted);
   line-height: 1.7;
+  flex: 1;
+}
+
+.info-card-meta {
+  margin-top: 4px;
+}
+
+.info-card-chip {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: var(--color-surface);
+  border-radius: 100px;
+  padding: 4px 14px;
+}
+
+/* ── FAQ Accordion (D) ────────────────────────────── */
+.faq-wrap {
+  margin-top: clamp(40px, 6vw, 64px);
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.faq-heading {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 300;
+  margin-bottom: 24px;
+  color: var(--color-text);
+}
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.faq-btn {
+  width: 100%;
+  text-align: left;
+  padding: 20px 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: color var(--transition);
+}
+
+.faq-btn::after {
+  content: '+';
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--color-accent);
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.faq-item.is-open .faq-btn::after {
+  transform: rotate(45deg);
+}
+
+.faq-btn:hover {
+  color: var(--color-accent);
+}
+
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.faq-item.is-open .faq-answer {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer p {
+  overflow: hidden;
+  padding-bottom: 20px;
+  font-size: 15px;
+  color: var(--color-text-muted);
+  line-height: 1.75;
 }
 
 /* ── Footer ───────────────────────────────────────── */

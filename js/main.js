@@ -89,18 +89,34 @@ const translations = {
     'tl-4-title':  'A ballar!',
     'tl-4-desc':   'Música i ball fins a la matinada',
 
-    // News
+    // RSVP deadline badge
+    'deadline-plural':   'Queden {n} dies per confirmar',
+    'deadline-singular': 'Queda 1 dia per confirmar',
+    'deadline-past':     'El termini de confirmació ha finalitzat',
+
+    // Guest info cards
     'news-label':  'Novetats',
     'news-title':  'Informació per als convidats',
-    'news-1-date':  'Febrer 2027',
     'news-1-title': 'Transport des de Barcelona',
     'news-1-body':  'Organitzem autobusos d\'anada i tornada des de Barcelona. Aviat us donarem més informació sobre horaris i punts de recollida.',
-    'news-2-date':  'Gener 2027',
     'news-2-title': 'Allotjament recomanat',
     'news-2-body':  'Hem reservat blocs d\'habitacions en hotels propers. Poseu-vos en contacte amb nosaltres si necessiteu ajuda per trobar allotjament.',
-    'news-3-date':  'Desembre 2026',
     'news-3-title': 'Codi de vestimenta',
     'news-3-body':  'L\'estil és elegant però còmode. Tingueu en compte que la celebració es farà en part a l\'aire lliure.',
+    'info-transport-chip': 'Anada i tornada inclosa',
+    'info-hotel-chip':     'Preu especial per a convidats',
+    'info-dress-chip':     'Elegant · Còmode · Exterior',
+
+    // FAQ
+    'faq-heading': 'Preguntes freqüents',
+    'faq-1-q': 'Hi ha aparcament al lloc?',
+    'faq-1-a': 'Sí, Can Ribas de Montbui disposa d\'aparcament gratuït per als convidats. Us recomanem arribar uns minuts abans per aparcar còmodament.',
+    'faq-2-q': 'Els nens hi poden assistir?',
+    'faq-2-a': 'Sí, els nens són benvinguts. Si veniu amb infants, indiqueu-ho al formulari RSVP per poder organitzar-nos millor.',
+    'faq-3-q': 'Quina és la llista de noces?',
+    'faq-3-a': 'La vostra presència ja és el millor regal. Si voleu fer-nos un obsequi, tenim una llista de noces — contacteu-nos i us enviarem els detalls.',
+    'faq-4-q': 'Hi ha restriccions alimentàries?',
+    'faq-4-a': 'Indiqueu qualsevol al·lèrgia o restricció alimentària al formulari RSVP i el cuiner en tindrà cura.',
 
     // Footer
     'footer-info': '12 de setembre de 2027 · Can Ribas de Montbui, Bigues i Riells',
@@ -189,17 +205,34 @@ const translations = {
     'tl-4-desc':   'Música y baile hasta la madrugada',
 
     // News
+    // RSVP deadline badge
+    'deadline-plural':   'Quedan {n} días para confirmar',
+    'deadline-singular': 'Queda 1 día para confirmar',
+    'deadline-past':     'El plazo de confirmación ha finalizado',
+
+    // Guest info cards
     'news-label':  'Novedades',
     'news-title':  'Información para los invitados',
-    'news-1-date':  'Febrero 2027',
     'news-1-title': 'Transporte desde Barcelona',
     'news-1-body':  'Organizamos autobuses de ida y vuelta desde Barcelona. Pronto os daremos más información sobre horarios y puntos de recogida.',
-    'news-2-date':  'Enero 2027',
     'news-2-title': 'Alojamiento recomendado',
     'news-2-body':  'Hemos reservado bloques de habitaciones en hoteles cercanos. Poneos en contacto con nosotros si necesitáis ayuda para encontrar alojamiento.',
-    'news-3-date':  'Diciembre 2026',
     'news-3-title': 'Código de vestimenta',
     'news-3-body':  'El estilo es elegante pero cómodo. Tened en cuenta que la celebración se realizará en parte al aire libre.',
+    'info-transport-chip': 'Ida y vuelta incluida',
+    'info-hotel-chip':     'Precio especial para invitados',
+    'info-dress-chip':     'Elegante · Cómodo · Exterior',
+
+    // FAQ
+    'faq-heading': 'Preguntas frecuentes',
+    'faq-1-q': '¿Hay aparcamiento en el lugar?',
+    'faq-1-a': 'Sí, Can Ribas de Montbui dispone de aparcamiento gratuito para los invitados. Os recomendamos llegar unos minutos antes para aparcar cómodamente.',
+    'faq-2-q': '¿Pueden asistir los niños?',
+    'faq-2-a': 'Sí, los niños son bienvenidos. Si venís con niños, indicadlo en el formulario RSVP para que podamos organizarnos mejor.',
+    'faq-3-q': '¿Cuál es la lista de bodas?',
+    'faq-3-a': 'Vuestra presencia ya es el mejor regalo. Si queréis hacernos un obsequio, tenemos lista de bodas — contactadnos y os enviaremos los detalles.',
+    'faq-4-q': '¿Hay restricciones alimentarias?',
+    'faq-4-a': 'Indicad cualquier alergia o restricción alimentaria en el formulario RSVP y el cocinero lo tendrá en cuenta.',
 
     // Footer
     'footer-info': '12 de septiembre de 2027 · Can Ribas de Montbui, Bigues i Riells',
@@ -242,6 +275,9 @@ function applyLanguage(lang) {
 
   // Refresh dynamically generated guest row labels
   if (window._refreshGuestLabels) window._refreshGuestLabels();
+
+  // Refresh deadline badge language
+  if (window._refreshDeadlineBadge) window._refreshDeadlineBadge();
 
   // Update lang toggle button appearance
   const langBtn = document.getElementById('lang-toggle');
@@ -555,9 +591,9 @@ function initActiveNav() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         navLinks.forEach(link => {
-          link.style.color = '';
+          link.classList.remove('is-active');
           if (link.getAttribute('href') === `#${entry.target.id}`) {
-            link.style.color = 'var(--color-text)';
+            link.classList.add('is-active');
           }
         });
       }
@@ -567,12 +603,61 @@ function initActiveNav() {
   sections.forEach(s => observer.observe(s));
 }
 
+/* ── RSVP Deadline Badge ──────────────────────────── */
+function initDeadlineBadge() {
+  const badge = document.getElementById('rsvp-deadline-badge');
+  if (!badge) return;
+
+  const deadline = new Date('2027-06-12T23:59:59');
+
+  function update() {
+    const diff = deadline - new Date();
+    if (diff <= 0) {
+      badge.textContent = translations[currentLang]['deadline-past'] || '';
+      badge.className = 'rsvp-deadline-badge rsvp-deadline-urgent';
+      return;
+    }
+    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+    const key  = days === 1 ? 'deadline-singular' : 'deadline-plural';
+    const tpl  = translations[currentLang][key] || '';
+    badge.textContent = tpl.replace('{n}', days);
+    badge.className   = days <= 14
+      ? 'rsvp-deadline-badge rsvp-deadline-urgent'
+      : 'rsvp-deadline-badge';
+  }
+
+  update();
+  setInterval(update, 60000);
+  window._refreshDeadlineBadge = update;
+}
+
+/* ── FAQ Accordion ────────────────────────────────── */
+function initFAQ() {
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      // Close all
+      document.querySelectorAll('.faq-btn').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.closest('.faq-item').classList.remove('is-open');
+      });
+      // Open clicked if it was closed
+      if (!expanded) {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.closest('.faq-item').classList.add('is-open');
+      }
+    });
+  });
+}
+
 /* ── Init ─────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initLanguage();
   initCountdown();
+  initDeadlineBadge();
   initScrollAnimations();
   initMobileNav();
   initRSVPForm();
   initActiveNav();
+  initFAQ();
 });
