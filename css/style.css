@@ -19,15 +19,15 @@
 
 /* ── Design Tokens ────────────────────────────────── */
 :root {
-  --color-bg:           #F8FAF8;
-  --color-text:         #2B2D29;
-  --color-text-muted:   #717c6a;
-  --color-accent:       #596054;
-  --color-accent-mid:   #717c6a;
-  --color-accent-light: #8d957e;
-  --color-border:       #c8cfc5;
-  --color-surface:      #F1F4F0;
-  --color-surface-2:    #E6EBE4;
+  --color-bg:           #F6F8F3;
+  --color-text:         #1A1C18;
+  --color-text-muted:   #4F5A49;
+  --color-accent:       #3D4A38;
+  --color-accent-mid:   #4F5A49;
+  --color-accent-light: #7A8A6E;
+  --color-border:       #B5C0B0;
+  --color-surface:      #EDF0E9;
+  --color-surface-2:    #DDE3D8;
 
   --font-display: 'Montserrat', system-ui, sans-serif;
   --font-script:  'Benedict', cursive;
@@ -328,9 +328,9 @@ ul {
   background:
     radial-gradient(
       ellipse 80% 90% at 50% 38%,
-      rgba(248, 250, 248, 0.06) 0%,
-      rgba(248, 250, 248, 0.52) 62%,
-      rgba(248, 250, 248, 0.92) 100%
+      rgba(246, 248, 243, 0.06) 0%,
+      rgba(246, 248, 243, 0.52) 62%,
+      rgba(246, 248, 243, 0.92) 100%
     );
   pointer-events: none;
 }
@@ -342,8 +342,8 @@ ul {
   inset: 0;
   z-index: 2;
   background-image:
-    linear-gradient(90deg, rgba(113, 124, 106, 0.06) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(113, 124, 106, 0.06) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(61, 74, 56, 0.07) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(61, 74, 56, 0.07) 1px, transparent 1px);
   background-size: 80px 80px;
   pointer-events: none;
 }
@@ -484,14 +484,6 @@ ul {
 @keyframes scrollLine {
   0%, 100% { transform: scaleY(1); opacity: 0.5; }
   50% { transform: scaleY(0.5); opacity: 1; }
-}
-
-.scroll-cue-text {
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
 }
 
 @keyframes fadeUp {
@@ -982,6 +974,55 @@ section:nth-child(even) {
 
 .rsvp-success p {
   color: var(--color-text-muted);
+}
+
+/* Calendar buttons */
+.rsvp-calendar {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+}
+
+.rsvp-cal-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
+}
+
+.rsvp-cal-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--color-accent);
+  border-radius: 4px;
+  padding: 12px 22px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  transition: all var(--transition);
+}
+
+.cal-btn:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.cal-btn svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
 }
 
 /* ── Timeline ─────────────────────────────────────── */

@@ -24,7 +24,6 @@ const translations = {
     'countdown-hours':   'Hores',
     'countdown-minutes': 'Minuts',
     'countdown-seconds': 'Segons',
-    'scroll-cue':   'Descobreix',
     'countdown-past': 'Ja som casats!',
 
     // Our Story
@@ -72,6 +71,9 @@ const translations = {
     'rsvp-submit':         'Confirmar assistència',
     'rsvp-success-title':  'Moltes gràcies!',
     'rsvp-success-text':   'Hem rebut la vostra confirmació. Us esperem!',
+    'rsvp-cal-label':      'Afegeix-ho a la teva agenda',
+    'rsvp-cal-google':     'Google Calendar',
+    'rsvp-cal-apple':      'Apple / Outlook',
 
     // Timeline
     'timeline-label':      'El dia',
@@ -121,7 +123,6 @@ const translations = {
     'countdown-hours':   'Horas',
     'countdown-minutes': 'Minutos',
     'countdown-seconds': 'Segundos',
-    'scroll-cue':   'Descubre',
     'countdown-past': '¡Ya estamos casados!',
 
     // Our Story
@@ -169,6 +170,9 @@ const translations = {
     'rsvp-submit':         'Confirmar asistencia',
     'rsvp-success-title':  '¡Muchas gracias!',
     'rsvp-success-text':   'Hemos recibido vuestra confirmación. ¡Os esperamos!',
+    'rsvp-cal-label':      'Añádelo a tu agenda',
+    'rsvp-cal-google':     'Google Calendar',
+    'rsvp-cal-apple':      'Apple / Outlook',
 
     // Timeline
     'timeline-label':      'El día',
@@ -348,10 +352,47 @@ function initMobileNav() {
   });
 }
 
+/* ── Calendar Helpers ─────────────────────────────── */
+function buildGoogleCalendarUrl(lang) {
+  const title    = encodeURIComponent('Casament Èlia & Adrián');
+  const location = encodeURIComponent('Can Ribas de Montbui, Bigues i Riells del Vallès');
+  const details  = encodeURIComponent(
+    lang === 'ca'
+      ? 'Us esperem al nostre casament! · Cerimònia a les 13:00 h'
+      : '¡Os esperamos en nuestra boda! · Ceremonia a las 13:00 h'
+  );
+  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=20270912T110000Z/20270912T210000Z&details=${details}&location=${location}`;
+}
+
+function buildICSDataUri(lang) {
+  const description = lang === 'ca'
+    ? 'Us esperem al nostre casament! Cerimònia a les 13:00 h.'
+    : '¡Os esperamos en nuestra boda! Ceremonia a las 13:00 h.';
+  const ics = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Elia & Adrian Wedding//EN',
+    'BEGIN:VEVENT',
+    'UID:casament-elia-adrian-2027@boda',
+    'DTSTAMP:20260407T000000Z',
+    'DTSTART:20270912T110000Z',
+    'DTEND:20270912T210000Z',
+    'SUMMARY:Casament Èlia & Adrián',
+    `DESCRIPTION:${description}`,
+    'LOCATION:Can Ribas de Montbui\\, Bigues i Riells del Vallès',
+    'END:VEVENT',
+    'END:VCALENDAR',
+  ].join('\r\n');
+  return 'data:text/calendar;charset=utf8,' + encodeURIComponent(ics);
+}
+
 /* ── RSVP Form ────────────────────────────────────── */
 function initRSVPForm() {
   const form        = document.getElementById('rsvp-form');
   const successEl   = document.getElementById('rsvp-success');
+  const calendarEl  = document.getElementById('rsvp-calendar');
+  const calGoogle   = document.getElementById('cal-google');
+  const calIcs      = document.getElementById('cal-ics');
   const guestsField = document.getElementById('guests-field');
   const guestRows   = document.getElementById('guest-rows');
   const addGuestBtn = document.getElementById('add-guest-btn');
@@ -360,6 +401,7 @@ function initRSVPForm() {
   if (!form) return;
 
   let guestCount = 0;
+  let attending = false;
 
   function t(key) {
     return translations[currentLang][key] || key;
@@ -429,10 +471,11 @@ function initRSVPForm() {
   // Expose so applyLanguage can call it
   window._refreshGuestLabels = refreshGuestLabels;
 
-  // Show/hide guest list based on attendance
+  // Show/hide guest list based on attendance; track attending state
   form.querySelectorAll('input[name="attendance"]').forEach(radio => {
     radio.addEventListener('change', () => {
-      if (radio.value === 'yes') {
+      attending = radio.value === 'yes';
+      if (attending) {
         guestsField?.classList.add('visible');
         if (guestRows.children.length === 0) addGuestRow();
       } else {
@@ -480,6 +523,11 @@ function initRSVPForm() {
       if (response.ok) {
         form.style.display = 'none';
         if (successEl) successEl.classList.add('visible');
+        if (attending && calendarEl && calGoogle && calIcs) {
+          calGoogle.href = buildGoogleCalendarUrl(currentLang);
+          calIcs.href    = buildICSDataUri(currentLang);
+          calendarEl.classList.remove('hidden');
+        }
       } else {
         throw new Error('Submission failed');
       }

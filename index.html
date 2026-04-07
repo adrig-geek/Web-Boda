@@ -128,7 +128,6 @@
       <!-- Scroll cue -->
       <div class="scroll-cue" aria-hidden="true">
         <div class="scroll-cue-line"></div>
-        <span class="scroll-cue-text" data-i18n="scroll-cue">Descobreix</span>
       </div>
     </section>
 
@@ -288,6 +287,25 @@
             </svg>
             <h3 data-i18n="rsvp-success-title">Moltes gràcies!</h3>
             <p data-i18n="rsvp-success-text">Hem rebut la vostra confirmació. Us esperem!</p>
+
+            <!-- Calendar buttons — only shown when attending -->
+            <div id="rsvp-calendar" class="rsvp-calendar hidden">
+              <p class="rsvp-cal-label" data-i18n="rsvp-cal-label">Afegeix-ho a la teva agenda</p>
+              <div class="rsvp-cal-buttons">
+                <a id="cal-google" href="#" target="_blank" rel="noopener noreferrer" class="cal-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                  </svg>
+                  <span data-i18n="rsvp-cal-google">Google Calendar</span>
+                </a>
+                <a id="cal-ics" href="#" download="casament-elia-adrian.ics" class="cal-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                  </svg>
+                  <span data-i18n="rsvp-cal-apple">Apple / Outlook</span>
+                </a>
+              </div>
+            </div>
           </div>
 
           <!-- RSVP Form -->
