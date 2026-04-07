@@ -291,15 +291,17 @@
           </div>
 
           <!-- RSVP Form -->
-          <!-- ACTION: Replace YOUR_FORM_ID with your Formspree form ID -->
           <form
             id="rsvp-form"
             class="rsvp-form fade-in"
-            action="https://formspree.io/f/YOUR_FORM_ID"
+            name="rsvp"
             method="POST"
+            netlify
             data-netlify="true"
+            netlify-honeypot="bot-field"
           >
-            <input type="hidden" name="_subject" value="RSVP — Casament Èlia &amp; Adrián" />
+            <input type="hidden" name="form-name" value="rsvp" />
+            <p class="hidden" aria-hidden="true"><input name="bot-field" tabindex="-1" autocomplete="off" /></p>
 
             <!-- Attendance -->
             <div class="form-group">

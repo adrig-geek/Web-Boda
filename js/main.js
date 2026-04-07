@@ -444,7 +444,7 @@ function initRSVPForm() {
   // Add guest button
   addGuestBtn?.addEventListener('click', addGuestRow);
 
-  // AJAX submission via Formspree
+  // AJAX submission via Netlify Forms
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -454,11 +454,11 @@ function initRSVPForm() {
     }
 
     try {
-      const data = new FormData(form);
-      const response = await fetch(form.action, {
+      const data = new URLSearchParams(new FormData(form)).toString();
+      const response = await fetch('/', {
         method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: data,
-        headers: { 'Accept': 'application/json' }
       });
 
       if (response.ok) {

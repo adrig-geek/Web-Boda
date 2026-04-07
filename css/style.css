@@ -657,6 +657,7 @@ section:nth-child(even) {
 }
 
 /* ── RSVP ─────────────────────────────────────────── */
+.hidden { display: none; }
 #rsvp .rsvp-inner {
   max-width: 640px;
   margin-inline: auto;
