@@ -380,87 +380,68 @@
           <h2 class="section-title" id="timeline-heading" data-i18n="timeline-title">El programa</h2>
         </div>
 
-        <ul class="timeline" role="list">
-          <!-- Item 0 — 12:30 Apertura -->
-          <li class="timeline-item fade-in">
-            <div class="timeline-item-left">
-              <div class="timeline-time">12:30</div>
-            </div>
-            <div class="timeline-item-dot" aria-hidden="true">
-              <div class="timeline-dot-inner">♥</div>
-            </div>
-            <div class="timeline-item-right">
-              <div class="timeline-desc">
+        <div class="timeline-h-wrap fade-in">
+
+          <!-- Curved SVG wave connecting all dots -->
+          <svg class="timeline-curve" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M 100,60 C 150,60 150,20 200,20 C 250,20 250,100 300,100 C 350,100 350,20 400,20 C 450,20 450,100 500,100 C 550,100 550,20 600,20 C 650,20 650,100 700,100 C 750,100 750,20 800,20 C 850,20 850,60 900,60"
+              fill="none" stroke="var(--color-border)" stroke-width="1.5"/>
+          </svg>
+
+          <ul class="timeline-h" role="list">
+
+            <!-- 12:30 -->
+            <li class="timeline-h-item fade-in" data-pos="up">
+              <div class="timeline-h-label top">
                 <strong data-i18n="tl-0-title">Obertura de portes</strong>
                 <span data-i18n="tl-0-desc">Rebuda i benvinguda als convidats</span>
               </div>
-            </div>
-          </li>
+              <div class="timeline-h-dot" aria-hidden="true">♥</div>
+              <div class="timeline-h-time bottom">12:30</div>
+            </li>
 
-          <!-- Item 1 — 13:00 Cerimònia -->
-          <li class="timeline-item fade-in">
-            <div class="timeline-item-left">
-              <div class="timeline-desc">
+            <!-- 13:00 -->
+            <li class="timeline-h-item fade-in" data-pos="down">
+              <div class="timeline-h-time top">13:00</div>
+              <div class="timeline-h-dot" aria-hidden="true">♥</div>
+              <div class="timeline-h-label bottom">
                 <strong data-i18n="tl-1-title">Diem sí, vull!</strong>
                 <span data-i18n="tl-1-desc">La cerimònia</span>
               </div>
-            </div>
-            <div class="timeline-item-dot" aria-hidden="true">
-              <div class="timeline-dot-inner">♥</div>
-            </div>
-            <div class="timeline-item-right">
-              <div class="timeline-time">13:00</div>
-            </div>
-          </li>
+            </li>
 
-          <!-- Item 2 — 14:00 Aperitiu -->
-          <li class="timeline-item fade-in">
-            <div class="timeline-item-left">
-              <div class="timeline-time">14:00</div>
-            </div>
-            <div class="timeline-item-dot" aria-hidden="true">
-              <div class="timeline-dot-inner">♥</div>
-            </div>
-            <div class="timeline-item-right">
-              <div class="timeline-desc">
+            <!-- 14:00 -->
+            <li class="timeline-h-item fade-in" data-pos="up">
+              <div class="timeline-h-label top">
                 <strong data-i18n="tl-2-title">Aperitiu</strong>
                 <span data-i18n="tl-2-desc">Còctel al jardí</span>
               </div>
-            </div>
-          </li>
+              <div class="timeline-h-dot" aria-hidden="true">♥</div>
+              <div class="timeline-h-time bottom">14:00</div>
+            </li>
 
-          <!-- Item 3 — 16:00 Dinar -->
-          <li class="timeline-item fade-in">
-            <div class="timeline-item-left">
-              <div class="timeline-desc">
+            <!-- 16:00 -->
+            <li class="timeline-h-item fade-in" data-pos="down">
+              <div class="timeline-h-time top">16:00</div>
+              <div class="timeline-h-dot" aria-hidden="true">♥</div>
+              <div class="timeline-h-label bottom">
                 <strong data-i18n="tl-3-title">A dinar!</strong>
                 <span data-i18n="tl-3-desc">Menú de celebració</span>
               </div>
-            </div>
-            <div class="timeline-item-dot" aria-hidden="true">
-              <div class="timeline-dot-inner">♥</div>
-            </div>
-            <div class="timeline-item-right">
-              <div class="timeline-time">16:00</div>
-            </div>
-          </li>
+            </li>
 
-          <!-- Item 4 — 19:00 Ball -->
-          <li class="timeline-item fade-in">
-            <div class="timeline-item-left">
-              <div class="timeline-time">19:00</div>
-            </div>
-            <div class="timeline-item-dot" aria-hidden="true">
-              <div class="timeline-dot-inner">♥</div>
-            </div>
-            <div class="timeline-item-right">
-              <div class="timeline-desc">
+            <!-- 19:00 -->
+            <li class="timeline-h-item fade-in" data-pos="up">
+              <div class="timeline-h-label top">
                 <strong data-i18n="tl-4-title">A ballar!</strong>
                 <span data-i18n="tl-4-desc">Música i ball fins a la matinada</span>
               </div>
-            </div>
-          </li>
-        </ul>
+              <div class="timeline-h-dot" aria-hidden="true">♥</div>
+              <div class="timeline-h-time bottom">19:00</div>
+            </li>
+
+          </ul>
+        </div>
       </div>
     </section>
 
