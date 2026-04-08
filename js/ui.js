@@ -157,7 +157,7 @@ function initFilmstrip() {
 
   /* ── Auto-rotate every 4 s ──────────────────────── */
   function startAuto() {
-    autoTimer = setInterval(() => goTo(current + 1), 4000);
+    autoTimer = setInterval(() => goTo(current + 1), 6000);
   }
   function resetAuto() {
     clearInterval(autoTimer);
