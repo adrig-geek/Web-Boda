@@ -20,41 +20,133 @@
   margin-bottom: 0;
 }
 
-/* ── Photo grid ───────────────────────────────────── */
-.story-photo-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: clamp(40px, 6vw, 64px);
-  max-width: 760px;
-  margin-inline: auto;
+/* ── Filmstrip wrapper — provides the edge fade hints ─ */
+.story-filmstrip-wrap {
+  position: relative;
+  margin-top: clamp(48px, 7vw, 80px);
+  /* Bleed past the container so the strip goes edge-to-edge */
+  margin-inline: calc(-1 * var(--container-padding, 24px));
 }
 
-.story-photo-grid figure {
+/* Gradient fade on left & right to hint at more photos */
+.story-filmstrip-wrap::before,
+.story-filmstrip-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 28px; /* stop above the dots */
+  width: clamp(32px, 5vw, 64px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.story-filmstrip-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-bg), transparent);
+}
+
+.story-filmstrip-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-bg), transparent);
+}
+
+/* ── The scrollable strip ─────────────────────────── */
+.story-filmstrip {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-inline: clamp(32px, 8vw, 120px);
+  padding-block: 8px 16px;
+  /* Hide scrollbar — navigation is via swipe + dots */
+  scrollbar-width: none;
+}
+
+.story-filmstrip::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Each photo card ──────────────────────────────── */
+.story-filmstrip figure {
+  flex: 0 0 clamp(260px, 72vw, 580px);
+  scroll-snap-align: center;
   border-radius: var(--border-radius);
   overflow: hidden;
-  aspect-ratio: 4/5;
+  aspect-ratio: 3/2;
   background: var(--color-surface-2);
+  box-shadow: 0 6px 28px rgba(0,0,0,.12);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* Offset the first photo down for a staggered look */
-.story-photo-grid figure:first-child {
-  margin-top: 40px;
+.story-filmstrip figure:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,.18);
+  transform: translateY(-3px);
 }
 
-.story-photo-grid img {
+.story-filmstrip img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-/* ── Responsive ───────────────────────────────────── */
-@media (max-width: 768px) {
-  .story-photo-grid {
-    grid-template-columns: 1fr;
-  }
+/* ── Arrow buttons ────────────────────────────────── */
+.filmstrip-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(calc(-50% - 16px)); /* up a bit to clear the dots */
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-bg);
+  color: var(--color-accent);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0,0,0,.14);
+  transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .story-photo-grid figure:first-child {
-    margin-top: 0;
-  }
+.filmstrip-arrow--prev { left: 12px; }
+.filmstrip-arrow--next { right: 12px; }
+
+.filmstrip-arrow:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  transform: translateY(calc(-50% - 16px)) scale(1.1);
+}
+
+.filmstrip-arrow:disabled {
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* ── Dot indicators ───────────────────────────────── */
+.story-filmstrip-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding-bottom: 4px;
+}
+
+.story-filmstrip-dots .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  opacity: 0.2;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.story-filmstrip-dots .dot.is-active {
+  opacity: 1;
+  transform: scale(1.3);
 }

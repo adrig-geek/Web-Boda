@@ -233,3 +233,21 @@ const TRANSLATIONS = {
     'footer-info': '12 de septiembre de 2027 · Can Ribas de Montbui, Bigues i Riells',
   }
 };
+
+/* ── Story photos ──────────────────────────────────────
+ * ★ Add or remove filenames here (up to 10).
+ *   Drop the image files into assets/images/story/
+ *   The filmstrip builds itself from this list.
+ * ─────────────────────────────────────────────────── */
+const STORY_PHOTOS = [
+  'assets/images/story/photo1.jpg',
+  'assets/images/story/photo2.jpg',
+  'assets/images/story/photo3.jpg',
+  'assets/images/story/photo4.jpg',
+  'assets/images/story/photo5.jpg',
+  'assets/images/story/photo6.jpg',
+  // 'assets/images/story/photo7.jpg',
+  // 'assets/images/story/photo8.jpg',
+  // 'assets/images/story/photo9.jpg',
+  // 'assets/images/story/photo10.jpg',
+];

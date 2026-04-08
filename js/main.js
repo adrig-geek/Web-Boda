@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initRSVPForm();
   initActiveNav();
   initFAQ();
+  initFilmstrip();
   equalizeTimelineSlots();
   window.addEventListener('resize', equalizeTimelineSlots);
 });
