@@ -1,0 +1,419 @@
+/* =====================================================
+   Èlia & Adrián — Wedding Website
+   rsvp.css  ·  RSVP form, guest list, deadline badge & calendar buttons
+   ===================================================== */
+
+/* ── Section layout ───────────────────────────────── */
+#rsvp .rsvp-inner {
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+#rsvp .section-header {
+  text-align: center;
+}
+
+.rsvp-intro {
+  text-align: center;
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+/* ── Deadline badge ───────────────────────────────── */
+.rsvp-deadline {
+  text-align: center;
+  margin-bottom: clamp(32px, 5vw, 48px);
+}
+
+.rsvp-deadline-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  padding: 6px 18px;
+}
+
+.rsvp-deadline-urgent {
+  color: #8B3A3A;
+  background: #FDF0F0;
+  border-color: #D9AEAE;
+}
+
+/* ── Form layout ──────────────────────────────────── */
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  transition: border-color var(--transition);
+  width: 100%;
+  appearance: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ── Attendance radio buttons ─────────────────────── */
+.radio-group {
+  display: flex;
+  gap: 12px;
+}
+
+.radio-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  cursor: pointer;
+  font-size: 15px;
+  color: var(--color-text-muted);
+  transition: all var(--transition);
+  user-select: none;
+}
+
+/* Hide native radio — label acts as the button */
+.radio-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.radio-option:has(input:checked) {
+  border-color: var(--color-accent);
+  color: var(--color-bg);
+  background: var(--color-accent);
+}
+
+/* ── Guest list ───────────────────────────────────── */
+.guests-list-field {
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.guests-list-field.visible {
+  display: flex;
+}
+
+.guests-list-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.guest-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.guest-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-bg);
+}
+
+.guest-row-top {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.guest-row input[type="text"] {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  transition: border-color var(--transition);
+  width: 100%;
+}
+
+.guest-row input[type="text"]:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.guest-row input[type="text"]::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+.guest-row-dietary input[type="text"] {
+  font-size: 13px;
+  background: var(--color-surface);
+}
+
+/* Adult / child toggle */
+.guest-type-toggle {
+  display: flex;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.guest-type-option {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.guest-type-option + .guest-type-option {
+  border-left: 1px solid var(--color-border);
+}
+
+.guest-type-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.guest-type-option:has(input:checked) {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* Remove guest button */
+.remove-guest-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: none;
+  color: var(--color-text-muted);
+  font-size: 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition);
+  flex-shrink: 0;
+}
+
+.remove-guest-btn:hover {
+  border-color: #b44;
+  color: #b44;
+}
+
+/* Add guest button */
+.add-guest-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  border: 1px dashed var(--color-accent-light);
+  border-radius: 8px;
+  padding: 12px 20px;
+  background: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  width: 100%;
+  justify-content: center;
+}
+
+.add-guest-btn:hover {
+  background: rgba(89, 96, 84, 0.06);
+  border-style: solid;
+}
+
+.add-guest-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Hidden textarea used to serialise guest data for Netlify */
+.guests-field {
+  display: none;
+}
+
+.guests-field.visible {
+  display: flex;
+}
+
+/* ── Submit button ────────────────────────────────── */
+.submit-btn {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-bg);
+  background: var(--color-text);
+  border: none;
+  border-radius: 4px;
+  padding: 18px 40px;
+  cursor: pointer;
+  transition: background var(--transition);
+  align-self: center;
+  margin-top: 8px;
+}
+
+.submit-btn:hover {
+  background: var(--color-accent);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Success state ────────────────────────────────── */
+.rsvp-success {
+  display: none;
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.rsvp-success.visible {
+  display: block;
+}
+
+.rsvp-success-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--color-accent);
+  margin: 0 auto 20px;
+}
+
+.rsvp-success h3 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 300;
+  margin-bottom: 12px;
+}
+
+.rsvp-success p {
+  color: var(--color-text-muted);
+}
+
+/* ── Calendar buttons (shown after accepting) ─────── */
+.rsvp-calendar {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+}
+
+.rsvp-cal-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
+}
+
+.rsvp-cal-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--color-accent);
+  border-radius: 4px;
+  padding: 12px 22px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  transition: all var(--transition);
+}
+
+.cal-btn:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.cal-btn svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 768px) {
+  .radio-group {
+    flex-direction: column;
+  }
+}

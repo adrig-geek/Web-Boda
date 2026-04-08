@@ -1,0 +1,25 @@
+/* =====================================================
+   Èlia & Adrián — Wedding Website
+   footer.css  ·  Footer
+   ===================================================== */
+
+footer {
+  padding-block: 40px;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.footer-names {
+  font-family: var(--font-script);
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+}
+
+.footer-info {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}

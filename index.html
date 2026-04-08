@@ -16,7 +16,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css" />
+  <!-- Styles — tokens first, then one file per section -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/story.css" />
+  <link rel="stylesheet" href="css/details.css" />
+  <link rel="stylesheet" href="css/rsvp.css" />
+  <link rel="stylesheet" href="css/timeline.css" />
+  <link rel="stylesheet" href="css/info.css" />
+  <link rel="stylesheet" href="css/footer.css" />
 
   <!-- noscript fallback: show all fade-in elements -->
   <noscript>
@@ -145,19 +155,12 @@
           <p data-i18n="story-p3">Gràcies per ser part del nostre dia més especial.</p>
         </div>
 
-        <!-- Optional photos — add your own images to assets/images/ -->
         <div class="story-photo-grid fade-in">
           <figure>
-            <!-- Replace src with your photo path: assets/images/photo1.jpg -->
-            <div class="story-photo-placeholder">
-              <span data-i18n="story-photo-1">Foto 1</span>
-            </div>
+            <img src="assets/images/photo1.jpg" alt="Èlia & Adrián" loading="lazy" />
           </figure>
           <figure>
-            <!-- Replace src with your photo path: assets/images/photo2.jpg -->
-            <div class="story-photo-placeholder">
-              <span data-i18n="story-photo-2">Foto 2</span>
-            </div>
+            <img src="assets/images/photo2.jpg" alt="Èlia & Adrián" loading="lazy" />
           </figure>
         </div>
       </div>
@@ -497,8 +500,8 @@
     <section id="novetats" aria-labelledby="news-heading">
       <div class="container">
         <div class="section-header fade-in">
-          <span class="section-label" data-i18n="news-label">Novetats</span>
-          <h2 class="section-title" id="news-heading" data-i18n="news-title">Informació per als convidats</h2>
+          <span class="section-label" data-i18n="news-label">Info & FAQ</span>
+          <h2 class="section-title" id="news-heading" data-i18n="news-title">Informació pràctica</h2>
         </div>
 
         <div class="info-cards">
@@ -617,6 +620,13 @@
     <p class="footer-info" data-i18n="footer-info">12 de setembre de 2027 · Can Ribas de Montbui, Bigues i Riells</p>
   </footer>
 
+  <!-- Scripts — content first, then logic, then init -->
+  <script src="js/content.js"></script>
+  <script src="js/lang.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/calendar.js"></script>
+  <script src="js/rsvp.js"></script>
+  <script src="js/ui.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

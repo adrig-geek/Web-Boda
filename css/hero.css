@@ -1,0 +1,227 @@
+/* =====================================================
+   Èlia & Adrián — Wedding Website
+   hero.css  ·  Hero section, countdown & scroll cue
+   ===================================================== */
+
+/* ── Hero container ───────────────────────────────── */
+#hero {
+  height: 100dvh;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 0 clamp(20px, 5vw, 48px);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ── Background image — botanical ink effect ──────── */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  filter: grayscale(55%) hue-rotate(55deg) saturate(0.55) contrast(1.18) brightness(1.1);
+  mix-blend-mode: multiply;
+  transform: scale(1.02);
+}
+
+/* Gradient overlay */
+#hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    radial-gradient(
+      ellipse 80% 90% at 50% 38%,
+      rgba(246, 248, 243, 0.06) 0%,
+      rgba(246, 248, 243, 0.52) 62%,
+      rgba(246, 248, 243, 0.92) 100%
+    );
+  pointer-events: none;
+}
+
+/* Subtle botanical grid lines */
+#hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-image:
+    linear-gradient(90deg, rgba(61, 74, 56, 0.07) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(61, 74, 56, 0.07) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+
+/* ── Hero content ─────────────────────────────────── */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.2s forwards;
+}
+
+.hero-names {
+  font-family: var(--font-script);
+  font-size: clamp(64px, 11vw, 120px);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--color-accent);
+  letter-spacing: 0.01em;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.4s forwards;
+}
+
+.hero-names .ampersand {
+  color: var(--color-accent-light);
+  font-size: 0.8em;
+}
+
+.hero-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--color-accent-light);
+  margin: 28px auto;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.6s forwards;
+}
+
+.hero-date {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 300;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.7s forwards;
+}
+
+.hero-venue {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  opacity: 0;
+  animation: fadeUp 1s ease 0.8s forwards;
+}
+
+/* ── Countdown timer ──────────────────────────────── */
+.countdown {
+  display: flex;
+  gap: clamp(16px, 4vw, 40px);
+  margin-top: clamp(40px, 6vw, 64px);
+  opacity: 0;
+  animation: fadeUp 1s ease 1s forwards;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.countdown-number {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--color-text);
+  min-width: 2ch;
+  text-align: center;
+}
+
+.countdown-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.countdown-sep {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 300;
+  color: var(--color-accent);
+  align-self: flex-start;
+  padding-top: 4px;
+  line-height: 1;
+  opacity: 0.5;
+}
+
+/* ── Scroll cue ───────────────────────────────────── */
+.scroll-cue {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeUp 1s ease 1.4s forwards;
+  z-index: 3;
+}
+
+.scroll-cue-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--color-border), transparent);
+  animation: scrollLine 2s ease-in-out 1.6s infinite;
+}
+
+/* ── Keyframes ────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scrollLine {
+  0%, 100% { transform: scaleY(1); opacity: 0.5; }
+  50%       { transform: scaleY(0.5); opacity: 1; }
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 768px) {
+  .countdown {
+    gap: 12px;
+  }
+
+  .countdown-sep {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .countdown-number {
+    font-size: clamp(28px, 8vw, 44px);
+  }
+}

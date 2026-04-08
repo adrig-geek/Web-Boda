@@ -1,0 +1,32 @@
+/* =====================================================
+   Èlia & Adrián — Wedding Website
+   tokens.css  ·  Edit this file to change colours, fonts and spacing
+   ===================================================== */
+
+:root {
+  /* ── Colours ──────────────────────────────────────── */
+  --color-bg:           #F6F8F3;
+  --color-text:         #1A1C18;
+  --color-text-muted:   #4F5A49;
+  --color-accent:       #3D4A38;
+  --color-accent-mid:   #4F5A49;
+  --color-accent-light: #7A8A6E;
+  --color-border:       #B5C0B0;
+  --color-surface:      #EDF0E9;
+  --color-surface-2:    #DDE3D8;
+
+  /* ── Fonts ────────────────────────────────────────── */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-script:  'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Montserrat', system-ui, sans-serif;
+
+  /* ── Layout ───────────────────────────────────────── */
+  --container-width: 1100px;
+  --section-padding: clamp(72px, 10vw, 128px);
+  --border-radius:   16px;
+  --nav-height:      72px;
+
+  /* ── Transitions ──────────────────────────────────── */
+  --transition:      0.25s ease;
+  --transition-slow: 0.6s ease;
+}
