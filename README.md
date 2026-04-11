@@ -11,7 +11,7 @@ Static wedding website for Èlia & Adrián's wedding on **12 September 2027** at
 - **Excel-ready Netlify data** — guest fields re-indexed before submit, `guest_count` and `has_children` hidden fields, pipe-formatted guests summary
 - **Save the date** — Google Calendar link and Apple/Outlook `.ics` download shown after RSVP acceptance
 - **Programme / timeline** — horizontal timeline (desktop) with vertical fallback (mobile)
-- **Guest info cards** — transport (with Google Maps link), accommodation and dress code
+- **Guest info cards** — transport, accommodation and dress code, each with a styled note chip for secondary info
 - **FAQ accordion** — collapsible Q&A for parking, kids, gifts and dietary needs
 - **Active nav underline** — animated underline follows the current scroll section
 - **Photo filmstrip** in the Our Story section — horizontal scroll with arrows, dot indicators and auto-rotate every 6 s (up to 10 photos)
