@@ -206,19 +206,14 @@
 
           <!-- Reception card -->
           <div class="event-card fade-in">
-            <!-- Champagne flutes clinking — like the invitation -->
+            <!-- Fork & knife -->
             <svg class="event-card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <!-- Left flute -->
-              <path d="M14 6 L20 6 L17 22 Z"/>
-              <line x1="17" y1="22" x2="17" y2="38"/>
-              <line x1="12" y1="38" x2="22" y2="38"/>
-              <!-- Right flute -->
-              <path d="M28 6 L34 6 L31 22 Z"/>
-              <line x1="31" y1="22" x2="31" y2="38"/>
-              <line x1="26" y1="38" x2="36" y2="38"/>
-              <!-- Clink sparkle at top -->
-              <path d="M22 4 L24 2 L26 4"/>
-              <line x1="24" y1="2" x2="24" y2="5"/>
+              <!-- Fork -->
+              <line x1="15" y1="20" x2="15" y2="40"/>
+              <path d="M11 8v10a4 4 0 0 0 8 0V8"/>
+              <!-- Knife -->
+              <line x1="33" y1="8" x2="33" y2="40"/>
+              <path d="M33 8c5 2 5 12 0 14"/>
             </svg>
             <span class="event-card-label" data-i18n="reception-label">Celebració</span>
             <h3 class="event-card-title" data-i18n="reception-title">El Banquet</h3>
@@ -398,11 +393,15 @@
           <div class="info-card fade-in">
             <div class="info-card-icon" aria-hidden="true">
               <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="4" y="18" width="40" height="18" rx="4"/>
-                <path d="M4 24h40"/>
-                <circle cx="13" cy="38" r="3"/><circle cx="35" cy="38" r="3"/>
-                <path d="M8 18l4-8h24l4 8"/>
-                <path d="M4 28h4m32 0h4"/>
+                <!-- Car body -->
+                <rect x="4" y="18" width="40" height="14" rx="3"/>
+                <!-- Roof/cabin -->
+                <path d="M13 18l4-10h14l4 10"/>
+                <!-- Wheels -->
+                <circle cx="13" cy="35" r="5"/>
+                <circle cx="35" cy="35" r="5"/>
+                <!-- Window divider -->
+                <line x1="24" y1="8" x2="24" y2="18"/>
               </svg>
             </div>
             <h3 class="info-card-title" data-i18n="news-1-title">¿Cómo llegar?</h3>
@@ -591,9 +590,17 @@
                 </svg>
                 <span data-i18n="rsvp-add-guest">Añadir persona</span>
               </button>
+              <div id="child-notice" class="child-notice hidden" role="alert">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                </svg>
+                <p>Èlia o Adri os contactarán para saber si el niño/a quiere menú, y de qué tipo. ¡Gracias!</p>
+              </div>
             </div>
-            <!-- Hidden field — collects all guest data for Netlify -->
+            <!-- Hidden fields — serialised for Netlify / Excel export -->
             <textarea name="guests" class="hidden" aria-hidden="true" tabindex="-1"></textarea>
+            <input type="hidden" name="guest_count"  id="guest-count-field"   value="0" />
+            <input type="hidden" name="has_children" id="has-children-field"  value="No" />
 
             <!-- Message -->
             <div class="form-group">
@@ -618,7 +625,7 @@
 
   <!-- ── Footer ────────────────────────────────────── -->
   <footer>
-    <p class="footer-names">Èlia &amp; Adrián</p>
+    <img class="footer-logo" src="assets/images/logo.png" alt="Èlia &amp; Adrián" />
     <p class="footer-info" data-i18n="footer-info">12 de setembre de 2027 · Can Ribas de Montbui, Bigues i Riells</p>
   </footer>
 

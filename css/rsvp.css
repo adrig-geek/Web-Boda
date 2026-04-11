@@ -306,6 +306,36 @@
   display: flex;
 }
 
+/* ── Child notice ─────────────────────────────────── */
+.child-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.child-notice.hidden {
+  display: none;
+}
+
+.child-notice svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--color-accent);
+  margin-top: 1px;
+}
+
+.child-notice p {
+  margin: 0;
+}
+
 /* ── Submit button ────────────────────────────────── */
 .submit-btn {
   font-family: var(--font-body);

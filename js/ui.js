@@ -126,7 +126,9 @@ function initFilmstrip() {
   /* ── Navigate to a specific index ──────────────── */
   function goTo(index) {
     current = (index + figures.length) % figures.length;
-    figures[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    const fig = figures[current];
+    const targetLeft = fig.offsetLeft - (strip.clientWidth - fig.offsetWidth) / 2;
+    strip.scrollTo({ left: targetLeft, behavior: 'smooth' });
     updateUI();
   }
 

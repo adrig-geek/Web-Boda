@@ -4,7 +4,7 @@
    ===================================================== */
 
 #nostra-historia .story-content {
-  max-width: 680px;
+  max-width: 860px;
   margin-inline: auto;
   text-align: center;
 }
@@ -14,6 +14,7 @@
   line-height: 1.85;
   color: var(--color-text-muted);
   margin-bottom: 24px;
+  text-align: center;
 }
 
 #nostra-historia .story-content p:last-child {

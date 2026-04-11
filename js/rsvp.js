@@ -17,11 +17,19 @@ function initRSVPForm() {
   const guestRows   = document.getElementById('guest-rows');
   const addGuestBtn = document.getElementById('add-guest-btn');
   const submitBtn   = form?.querySelector('.submit-btn');
+  const childNotice = document.getElementById('child-notice');
 
   if (!form) return;
 
   let guestCount = 0;
   let attending  = false;
+
+  /* ── Show notice if any guest is marked as child ─── */
+  function checkChildNotice() {
+    if (!childNotice) return;
+    const hasChild = guestRows.querySelector('input[type="radio"][value="child"]:checked') !== null;
+    childNotice.classList.toggle('hidden', !hasChild);
+  }
 
   function t(key) {
     return TRANSLATIONS[currentLang][key] || key;
@@ -64,9 +72,14 @@ function initRSVPForm() {
       </div>
     `;
 
+    row.querySelectorAll('input[type="radio"]').forEach(r => {
+      r.addEventListener('change', checkChildNotice);
+    });
+
     row.querySelector('.remove-guest-btn').addEventListener('click', () => {
       row.remove();
       if (guestRows.children.length === 0) addGuestRow();
+      checkChildNotice();
     });
 
     guestRows.appendChild(row);
@@ -115,18 +128,42 @@ function initRSVPForm() {
       submitBtn.textContent = '...';
     }
 
-    // Serialise guest rows into the hidden textarea Netlify receives
+    // Re-index guest fields sequentially (fixes gaps from mid-form deletions)
+    const rows = [...guestRows.querySelectorAll('.guest-row')];
+    rows.forEach((row, i) => {
+      const n = i + 1;
+      const nameInput    = row.querySelector('input[type="text"]');
+      const typeRadios   = row.querySelectorAll('input[type="radio"]');
+      const dietaryInput = row.querySelector('.guest-row-dietary input');
+      if (nameInput)    nameInput.name    = `guest_${n}_name`;
+      typeRadios.forEach(r => r.name     = `guest_${n}_type`);
+      if (dietaryInput) dietaryInput.name = `guest_${n}_dietary`;
+    });
+
+    // Set guest_count and has_children hidden fields
+    const countField    = document.getElementById('guest-count-field');
+    const childrenField = document.getElementById('has-children-field');
+    if (countField)    countField.value    = rows.length;
+    if (childrenField) childrenField.value =
+      rows.some(r => r.querySelector('input[value="child"]:checked')) ? 'Sí' : 'No';
+
+    // Serialise guests into a readable pipe-separated table for Netlify email
     const guestsTextarea = form.querySelector('textarea[name="guests"]');
     if (guestsTextarea) {
-      const rows = [...guestRows.querySelectorAll('.guest-row')];
-      guestsTextarea.value = rows.length
-        ? rows.map((row, i) => {
-            const name    = row.querySelector('input[type="text"]')?.value || '';
-            const type    = row.querySelector('input[type="radio"]:checked')?.value || '';
-            const dietary = row.querySelector('.guest-row-dietary input')?.value || '';
-            return `${i + 1}. ${name} (${type})${dietary ? ' — ' + dietary : ''}`;
-          }).join('\n')
-        : '';
+      if (rows.length) {
+        const header  = 'Nombre                  | Tipo    | Dieta';
+        const divider = '-'.repeat(24) + '+' + '-'.repeat(9) + '+' + '-'.repeat(22);
+        const lines   = rows.map(row => {
+          const name    = (row.querySelector('input[type="text"]')?.value || '').padEnd(23);
+          const isChild = row.querySelector('input[value="child"]:checked') !== null;
+          const type    = (isChild ? 'Niño/a' : 'Adulto').padEnd(7);
+          const dietary = row.querySelector('.guest-row-dietary input')?.value || '-';
+          return `${name} | ${type} | ${dietary}`;
+        });
+        guestsTextarea.value = [header, divider, ...lines].join('\n');
+      } else {
+        guestsTextarea.value = '';
+      }
     }
 
     try {

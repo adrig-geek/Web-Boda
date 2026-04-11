@@ -7,13 +7,14 @@ Static wedding website for Èlia & Adrián's wedding on **12 September 2027** at
 - **Bilingual** — Catalan / Spanish toggle, persisted via `localStorage`
 - **Live countdown** to the wedding date
 - **RSVP deadline badge** — pill showing days remaining to confirm, turns red in the final 14 days
-- **RSVP form** — dynamic guest list (name, adult/child, dietary needs), submitted via Netlify Forms
+- **RSVP form** — dynamic guest list (name, adult/child, dietary needs), submitted via Netlify Forms; child-guest notice shown automatically when a Niño/a is added
+- **Excel-ready Netlify data** — guest fields re-indexed before submit, `guest_count` and `has_children` hidden fields, pipe-formatted guests summary
 - **Save the date** — Google Calendar link and Apple/Outlook `.ics` download shown after RSVP acceptance
 - **Programme / timeline** — horizontal timeline (desktop) with vertical fallback (mobile)
-- **Guest info cards** — transport, accommodation and dress code with icons and detail chips
+- **Guest info cards** — transport (with Google Maps link), accommodation and dress code
 - **FAQ accordion** — collapsible Q&A for parking, kids, gifts and dietary needs
 - **Active nav underline** — animated underline follows the current scroll section
-- **Photo filmstrip** in the Our Story section — horizontal scroll with arrows, dot indicators and auto-rotate (up to 10 photos)
+- **Photo filmstrip** in the Our Story section — horizontal scroll with arrows, dot indicators and auto-rotate every 6 s (up to 10 photos)
 - Smooth scroll animations and mobile-responsive layout with a hamburger menu
 
 ## Project structure
@@ -110,7 +111,18 @@ The filmstrip (scroll, arrows, dots, auto-rotate) rebuilds itself from the list.
 
 The RSVP form uses [Netlify Forms](https://docs.netlify.com/forms/setup/) — no backend needed. Submissions appear in the Netlify dashboard under **Forms → rsvp**.
 
-Guest details (name, adult/child, dietary info) are serialised into a single `guests` field before submission so they appear cleanly in the dashboard. This serialisation happens in `js/rsvp.js`.
+Before each submission, `js/rsvp.js` does the following automatically:
+
+- **Re-indexes guest fields** sequentially (`guest_1_*`, `guest_2_*`, …) so deletions mid-form never leave gaps in the Netlify CSV export
+- Sets **`guest_count`** (integer) and **`has_children`** (`Sí` / `No`) as hidden fields — useful as filter columns in Excel
+- Builds a **pipe-separated `guests` summary** (shown in Netlify email notifications):
+
+```text
+Nombre                  | Tipo    | Dieta
+------------------------+---------+----------------------
+Joan Pérez              | Adulto  | -
+Maria García            | Niño/a  | Sin gluten
+```
 
 ## Deployment
 
