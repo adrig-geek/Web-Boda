@@ -103,14 +103,15 @@ const TRANSLATIONS = {
 
     // FAQ
     'faq-heading': 'Preguntes freqüents',
-    'faq-1-q': 'Hi ha aparcament al lloc?',
+    'faq-1-q': '¿Hay aparcamiento en Can Ribas?',
     'faq-1-a': 'Sí, Can Ribas de Montbui disposa d\'aparcament gratuït per als convidats. Us recomanem arribar uns minuts abans per aparcar còmodament.',
-    'faq-2-q': 'Els nens hi poden assistir?',
-    'faq-2-a': 'Sí, els nens són benvinguts. Si veniu amb infants, indiqueu-ho al formulari RSVP per poder organitzar-nos millor.',
-    'faq-3-q': 'Quina és la llista de noces?',
-    'faq-3-a': 'La vostra presència ja és el millor regal. Si voleu fer-nos un obsequi, tenim una llista de noces — contacteu-nos i us enviarem els detalls.',
-    'faq-4-q': 'Hi ha restriccions alimentàries?',
-    'faq-4-a': 'Indiqueu qualsevol al·lèrgia o restricció alimentària al formulari RSVP i el cuiner en tindrà cura.',
+    'faq-2-q': '¿Pueden asistir niños/as?',
+    'faq-2-a': 'Sí, los niños son bienvenidos. Si venís con niños, indicadlo en el formulario RSVP para que podamos organizarlo.',
+    'faq-3-q': 'Detalles y regalos',
+    'faq-3-a': '<strong>Vuestra presencia es nuestro regalo más bonito</strong>, pero si queréis colaborar con nosotros para llenar de recuerdos nuestro viaje, podéis escribirnos:<br>Èlia - 657 499 431<br>Adri - 645 262 348',
+    'faq-4-q': '¿Qué pasa si tengo alguna alergia o restricción alimentaria?',
+    'faq-4-a': '¡No os preocupéis por nada! Para nosotros vuestra tranquilidad es fundamental, y la cocina de Can Ribas es muy profesional y cuidadosa con este tema. Solo tenéis que indicarlo en el formulario RSVP y el equipo preparará un menú seguro y adaptado para vosotros.',
+    'news-1-note': '¿No tienes coche? ¡Contáctanos! Podemos ayudar a organizar alguna alternativa.',
 
     // Footer
     'footer-info': '12 de setembre de 2027 · Can Ribas de Montbui, Bigues i Riells',
@@ -212,14 +213,15 @@ const TRANSLATIONS = {
 
     // FAQ
     'faq-heading': 'Preguntas frecuentes',
-    'faq-1-q': '¿Hay aparcamiento en el lugar?',
+    'faq-1-q': '¿Hay aparcamiento en Can Ribas?',
     'faq-1-a': 'Sí, Can Ribas de Montbui dispone de aparcamiento gratuito para los invitados. Os recomendamos llegar unos minutos antes para aparcar cómodamente.',
-    'faq-2-q': '¿Pueden asistir los niños?',
-    'faq-2-a': 'Sí, los niños son bienvenidos. Si venís con niños, indicadlo en el formulario RSVP para que podamos organizarnos mejor.',
-    'faq-3-q': '¿Cuál es la lista de bodas?',
-    'faq-3-a': 'Vuestra presencia ya es el mejor regalo. Si queréis hacernos un obsequio, tenemos lista de bodas — contactadnos y os enviaremos los detalles.',
-    'faq-4-q': '¿Hay restricciones alimentarias?',
-    'faq-4-a': 'Indicad cualquier alergia o restricción alimentaria en el formulario RSVP y el cocinero lo tendrá en cuenta.',
+    'faq-2-q': '¿Pueden asistir niños/as?',
+    'faq-2-a': 'Sí, los niños son bienvenidos. Si venís con niños, indicadlo en el formulario RSVP para que podamos organizarlo.',
+    'faq-3-q': 'Detalles y regalos',
+    'faq-3-a': '<strong>Vuestra presencia es nuestro regalo más bonito</strong>, pero si queréis colaborar con nosotros para llenar de recuerdos nuestro viaje, podéis escribirnos:<br>Èlia - 657 499 431<br>Adri - 645 262 348',
+    'faq-4-q': '¿Qué pasa si tengo alguna alergia o restricción alimentaria?',
+    'faq-4-a': '¡No os preocupéis por nada! Para nosotros vuestra tranquilidad es fundamental, y la cocina de Can Ribas es muy profesional y cuidadosa con este tema. Solo tenéis que indicarlo en el formulario RSVP y el equipo preparará un menú seguro y adaptado para vosotros.',
+    'news-1-note': '¿No tienes coche? ¡Contáctanos! Podemos ayudar a organizar alguna alternativa.',
 
     // Footer
     'footer-info': '12 de septiembre de 2027 · Can Ribas de Montbui, Bigues i Riells',
