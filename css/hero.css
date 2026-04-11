@@ -31,8 +31,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center 25%;
-  filter: grayscale(55%) hue-rotate(55deg) saturate(0.55) contrast(1.18) brightness(1.1);
-  mix-blend-mode: multiply;
+  filter: grayscale(30%) brightness(1.35) saturate(0.4) contrast(1.05);
   transform: scale(1.02);
 }
 
@@ -44,10 +43,10 @@
   z-index: 2;
   background:
     radial-gradient(
-      ellipse 80% 90% at 50% 38%,
-      rgba(246, 248, 243, 0.06) 0%,
-      rgba(246, 248, 243, 0.52) 62%,
-      rgba(246, 248, 243, 0.92) 100%
+      ellipse 90% 80% at 50% 38%,
+      rgba(246, 248, 243, 0.55) 0%,
+      rgba(246, 248, 243, 0.82) 55%,
+      rgba(246, 248, 243, 0.97) 100%
     );
   pointer-events: none;
 }

@@ -50,9 +50,9 @@
         <ul class="nav-links" role="list">
           <li><a href="#nostra-historia" data-i18n="nav-story">La Nostra Història</a></li>
           <li><a href="#detalls" data-i18n="nav-details">Detalls</a></li>
-          <li><a href="#rsvp" data-i18n="nav-rsvp">RSVP</a></li>
           <li><a href="#programa" data-i18n="nav-timeline">Programa</a></li>
           <li><a href="#novetats" data-i18n="nav-news">Novetats</a></li>
+          <li><a href="#rsvp" data-i18n="nav-rsvp">RSVP</a></li>
         </ul>
 
         <div class="nav-right">
@@ -81,9 +81,9 @@
     <div id="nav-overlay" class="nav-overlay" role="dialog" aria-modal="true" aria-label="Menú de navegació">
       <a href="#nostra-historia" data-i18n="nav-story">La Nostra Història</a>
       <a href="#detalls" data-i18n="nav-details">Detalls</a>
-      <a href="#rsvp" data-i18n="nav-rsvp">RSVP</a>
       <a href="#programa" data-i18n="nav-timeline">Programa</a>
       <a href="#novetats" data-i18n="nav-news">Novetats</a>
+      <a href="#rsvp" data-i18n="nav-rsvp">RSVP</a>
     </div>
   </header>
 
@@ -146,7 +146,6 @@
       <div class="container">
         <div class="section-header fade-in" style="text-align:center">
           <span class="section-label" data-i18n="story-label">La nostra història</span>
-          <h2 class="section-title" id="story-heading" data-i18n="story-title">Com va començar tot</h2>
         </div>
 
         <div class="story-content fade-in">
@@ -175,14 +174,10 @@
         <div class="event-cards">
           <!-- Ceremony card -->
           <div class="event-card fade-in">
-            <!-- Interlocked rings with heart — like the invitation -->
+            <!-- Wedding rings -->
             <svg class="event-card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <!-- Heart -->
-              <path d="M24 16 C24 16 21 10 17 12.5 C13 15 14.5 21 24 26 C33.5 21 35 15 31 12.5 C27 10 24 16 24 16 Z"/>
-              <!-- Left ring -->
-              <circle cx="17" cy="34" r="9"/>
-              <!-- Right ring -->
-              <circle cx="31" cy="34" r="9"/>
+              <circle cx="17" cy="24" r="11"/>
+              <circle cx="31" cy="24" r="11"/>
             </svg>
             <span class="event-card-label" data-i18n="ceremony-label">Cerimònia</span>
             <h3 class="event-card-title" data-i18n="ceremony-title">L'Enllaç</h3>
@@ -204,7 +199,7 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
                 </svg>
-                <span data-i18n="ceremony-note">Us preguem que estigueu al lloc a les 12:30 h</span>
+                <span data-i18n-html="ceremony-note">Us preguem que estigueu al lloc a les 12:30 h</span>
               </div>
             </div>
           </div>
@@ -264,111 +259,6 @@
             </svg>
             <span data-i18n="map-btn">Veure al mapa</span>
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── RSVP ───────────────────────────────────── -->
-    <section id="rsvp" aria-labelledby="rsvp-heading">
-      <div class="container">
-        <div class="rsvp-inner">
-          <div class="section-header fade-in">
-            <span class="section-label" data-i18n="rsvp-label">Confirmació</span>
-            <h2 class="section-title" id="rsvp-heading" data-i18n="rsvp-title">Confirmeu la vostra assistència</h2>
-          </div>
-
-          <p class="rsvp-intro fade-in" data-i18n="rsvp-intro">
-            Si us plau, confirmeu la vostra assistència abans del 12 de juny de 2027.
-          </p>
-          <div class="rsvp-deadline fade-in" aria-live="polite">
-            <span id="rsvp-deadline-badge" class="rsvp-deadline-badge"></span>
-          </div>
-
-          <!-- Success message (hidden until form submitted) -->
-          <div id="rsvp-success" class="rsvp-success" role="alert" aria-live="polite">
-            <svg class="rsvp-success-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-            </svg>
-            <h3 data-i18n="rsvp-success-title">Moltes gràcies!</h3>
-            <p data-i18n="rsvp-success-text">Hem rebut la vostra confirmació. Us esperem!</p>
-
-            <!-- Calendar buttons — only shown when attending -->
-            <div id="rsvp-calendar" class="rsvp-calendar hidden">
-              <p class="rsvp-cal-label" data-i18n="rsvp-cal-label">Afegeix-ho a la teva agenda</p>
-              <div class="rsvp-cal-buttons">
-                <a id="cal-google" href="#" target="_blank" rel="noopener noreferrer" class="cal-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
-                  </svg>
-                  <span data-i18n="rsvp-cal-google">Google Calendar</span>
-                </a>
-                <a id="cal-ics" href="#" download="casament-elia-adrian.ics" class="cal-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                  </svg>
-                  <span data-i18n="rsvp-cal-apple">Apple / Outlook</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- RSVP Form -->
-          <form
-            id="rsvp-form"
-            class="rsvp-form fade-in"
-            name="rsvp"
-            method="POST"
-            netlify
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-          >
-            <input type="hidden" name="form-name" value="rsvp" />
-            <p class="hidden" aria-hidden="true"><input name="bot-field" tabindex="-1" autocomplete="off" /></p>
-
-            <!-- Attendance -->
-            <div class="form-group">
-              <label data-i18n="rsvp-att-label">Assistireu?</label>
-              <div class="radio-group" role="radiogroup" aria-labelledby="rsvp-att-label">
-                <label class="radio-option">
-                  <input type="radio" name="attendance" value="yes" required />
-                  <span data-i18n="rsvp-att-yes">Sí, hi aniré</span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="attendance" value="no" required />
-                  <span data-i18n="rsvp-att-no">No podré assistir</span>
-                </label>
-              </div>
-            </div>
-
-            <!-- Guest list (shown only when attending) -->
-            <div class="guests-list-field" id="guests-field">
-              <span class="guests-list-label" data-i18n="rsvp-guests-label">Personas que asistirán</span>
-              <div class="guest-rows" id="guest-rows"></div>
-              <button type="button" class="add-guest-btn" id="add-guest-btn">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
-                </svg>
-                <span data-i18n="rsvp-add-guest">Añadir persona</span>
-              </button>
-            </div>
-            <!-- Hidden field — collects all guest data for Netlify -->
-            <textarea name="guests" class="hidden" aria-hidden="true" tabindex="-1"></textarea>
-
-            <!-- Message -->
-            <div class="form-group">
-              <label for="rsvp-message" data-i18n="rsvp-message-label">Missatge per als nuvis</label>
-              <textarea
-                id="rsvp-message"
-                name="message"
-                data-i18n-ph="rsvp-message-ph"
-                placeholder="Deixeu-nos un missatge!"
-              ></textarea>
-            </div>
-
-            <button type="submit" class="submit-btn" data-i18n="rsvp-submit">
-              Confirmar assistència
-            </button>
-          </form>
         </div>
       </div>
     </section>
@@ -508,16 +398,27 @@
           <div class="info-card fade-in">
             <div class="info-card-icon" aria-hidden="true">
               <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="4" y="14" width="40" height="22" rx="4"/>
-                <path d="M4 20h40"/>
+                <rect x="4" y="18" width="40" height="18" rx="4"/>
+                <path d="M4 24h40"/>
                 <circle cx="13" cy="38" r="3"/><circle cx="35" cy="38" r="3"/>
-                <path d="M13 36v2m22-2v2M4 26h4m32 0h4"/>
+                <path d="M8 18l4-8h24l4 8"/>
+                <path d="M4 28h4m32 0h4"/>
               </svg>
             </div>
-            <h3 class="info-card-title" data-i18n="news-1-title">Transport des de Barcelona</h3>
-            <p class="info-card-body" data-i18n="news-1-body">Organitzem autobusos d'anada i tornada des de Barcelona. Aviat us donarem més informació sobre horaris i punts de recollida.</p>
+            <h3 class="info-card-title" data-i18n="news-1-title">¿Cómo llegar?</h3>
+            <p class="info-card-body" data-i18n="news-1-body">En la Autovía C-17, salid en la Ametlla del Vallès (Salida 3) dirección Bigues i Riells y seguir indicaciones Can Ribas.</p>
             <div class="info-card-meta">
-              <span class="info-card-chip" data-i18n="info-transport-chip">Anada i tornada inclosa</span>
+              <a
+                href="https://maps.google.com/?q=Can+Ribas+de+Montbui,+Bigues+i+Riells+del+Vallès"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="map-btn"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z" />
+                </svg>
+                <span data-i18n="map-btn">Ver en el mapa</span>
+              </a>
             </div>
           </div>
 
@@ -525,17 +426,18 @@
           <div class="info-card fade-in">
             <div class="info-card-icon" aria-hidden="true">
               <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M8 40V16l16-8 16 8v24"/>
-                <path d="M18 40v-8h12v8"/>
-                <rect x="18" y="20" width="5" height="5" rx="1"/>
-                <rect x="25" y="20" width="5" height="5" rx="1"/>
+                <rect x="6" y="10" width="36" height="30" rx="2"/>
+                <path d="M6 22h36"/>
+                <path d="M18 10v12"/>
+                <path d="M30 10v12"/>
+                <rect x="14" y="28" width="6" height="12" rx="1"/>
+                <rect x="28" y="28" width="6" height="12" rx="1"/>
+                <path d="M2 40h44"/>
+                <path d="M20 10V6h8v4"/>
               </svg>
             </div>
-            <h3 class="info-card-title" data-i18n="news-2-title">Allotjament recomanat</h3>
-            <p class="info-card-body" data-i18n="news-2-body">Hem reservat blocs d'habitacions en hotels propers. Poseu-vos en contacte amb nosaltres si necessiteu ajuda per trobar allotjament.</p>
-            <div class="info-card-meta">
-              <span class="info-card-chip" data-i18n="info-hotel-chip">Preu especial per a convidats</span>
-            </div>
+            <h3 class="info-card-title" data-i18n="news-2-title">¿Dónde dormir?</h3>
+            <p class="info-card-body" data-i18n="news-2-body">Existen muchos hoteles cerca de Can Ribas si queréis alojaros. Próximamente daremos más información sobre los que recomendamos 😊</p>
           </div>
 
           <!-- Dress code card -->
@@ -546,11 +448,8 @@
                 <path d="M16 6c0 4.4 3.6 8 8 8s8-3.6 8-8"/>
               </svg>
             </div>
-            <h3 class="info-card-title" data-i18n="news-3-title">Codi de vestimenta</h3>
-            <p class="info-card-body" data-i18n="news-3-body">L'estil és elegant però còmode. Tingueu en compte que la celebració es farà en part a l'aire lliure.</p>
-            <div class="info-card-meta">
-              <span class="info-card-chip" data-i18n="info-dress-chip">Elegant · Còmode · Exterior</span>
-            </div>
+            <h3 class="info-card-title" data-i18n="news-3-title">¿Cómo vestir?</h3>
+            <p class="info-card-body" data-i18n="news-3-body">Elegante, evitando el color blanco. Tened en cuenta que parte de la celebración será al aire libre.</p>
           </div>
 
         </div>
@@ -607,6 +506,111 @@
           </dl>
         </div>
 
+      </div>
+    </section>
+
+    <!-- ── RSVP ───────────────────────────────────── -->
+    <section id="rsvp" aria-labelledby="rsvp-heading">
+      <div class="container">
+        <div class="rsvp-inner">
+          <div class="section-header fade-in">
+            <span class="section-label" data-i18n="rsvp-label">Confirmació</span>
+            <h2 class="section-title" id="rsvp-heading" data-i18n="rsvp-title">Confirmeu la vostra assistència</h2>
+          </div>
+
+          <p class="rsvp-intro fade-in" data-i18n="rsvp-intro">
+            Si us plau, confirmeu la vostra assistència abans del 12 de juny de 2027.
+          </p>
+          <div class="rsvp-deadline fade-in" aria-live="polite">
+            <span id="rsvp-deadline-badge" class="rsvp-deadline-badge"></span>
+          </div>
+
+          <!-- Success message (hidden until form submitted) -->
+          <div id="rsvp-success" class="rsvp-success" role="alert" aria-live="polite">
+            <svg class="rsvp-success-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+            <h3 data-i18n="rsvp-success-title">Moltes gràcies!</h3>
+            <p data-i18n="rsvp-success-text">Hem rebut la vostra confirmació. Us esperem!</p>
+
+            <!-- Calendar buttons — only shown when attending -->
+            <div id="rsvp-calendar" class="rsvp-calendar hidden">
+              <p class="rsvp-cal-label" data-i18n="rsvp-cal-label">Afegeix-ho a la teva agenda</p>
+              <div class="rsvp-cal-buttons">
+                <a id="cal-google" href="#" target="_blank" rel="noopener noreferrer" class="cal-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                  </svg>
+                  <span data-i18n="rsvp-cal-google">Google Calendar</span>
+                </a>
+                <a id="cal-ics" href="#" download="casament-elia-adrian.ics" class="cal-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                  </svg>
+                  <span data-i18n="rsvp-cal-apple">Apple / Outlook</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- RSVP Form -->
+          <form
+            id="rsvp-form"
+            class="rsvp-form fade-in"
+            name="rsvp"
+            method="POST"
+            netlify
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="rsvp" />
+            <p class="hidden" aria-hidden="true"><input name="bot-field" tabindex="-1" autocomplete="off" /></p>
+
+            <!-- Attendance -->
+            <div class="form-group">
+              <label data-i18n="rsvp-att-label">Assistireu?</label>
+              <div class="radio-group" role="radiogroup" aria-labelledby="rsvp-att-label">
+                <label class="radio-option">
+                  <input type="radio" name="attendance" value="yes" required />
+                  <span data-i18n="rsvp-att-yes">Sí, hi aniré</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="attendance" value="no" required />
+                  <span data-i18n="rsvp-att-no">No podré assistir</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Guest list (shown only when attending) -->
+            <div class="guests-list-field" id="guests-field">
+              <span class="guests-list-label" data-i18n="rsvp-guests-label">Personas que asistirán</span>
+              <div class="guest-rows" id="guest-rows"></div>
+              <button type="button" class="add-guest-btn" id="add-guest-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+                </svg>
+                <span data-i18n="rsvp-add-guest">Añadir persona</span>
+              </button>
+            </div>
+            <!-- Hidden field — collects all guest data for Netlify -->
+            <textarea name="guests" class="hidden" aria-hidden="true" tabindex="-1"></textarea>
+
+            <!-- Message -->
+            <div class="form-group">
+              <label for="rsvp-message" data-i18n="rsvp-message-label">Missatge per als nuvis</label>
+              <textarea
+                id="rsvp-message"
+                name="message"
+                data-i18n-ph="rsvp-message-ph"
+                placeholder="Deixeu-nos un missatge!"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" data-i18n="rsvp-submit">
+              Confirmar assistència
+            </button>
+          </form>
+        </div>
       </div>
     </section>
 

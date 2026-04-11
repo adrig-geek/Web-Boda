@@ -21,6 +21,14 @@ function applyLanguage(lang) {
     }
   });
 
+  // Update HTML content (allows bold, etc.)
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.dataset.i18nHtml;
+    if (TRANSLATIONS[lang][key] !== undefined) {
+      el.innerHTML = TRANSLATIONS[lang][key];
+    }
+  });
+
   // Update input placeholders
   document.querySelectorAll('[data-i18n-ph]').forEach(el => {
     const key = el.dataset.i18nPh;
