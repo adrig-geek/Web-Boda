@@ -40,9 +40,9 @@
 }
 
 .rsvp-deadline-urgent {
-  color: #8B3A3A;
-  background: #FDF0F0;
-  border-color: #D9AEAE;
+  color: var(--color-urgent);
+  background: var(--color-urgent-bg);
+  border-color: var(--color-urgent-border);
 }
 
 /* ── Form layout ──────────────────────────────────── */

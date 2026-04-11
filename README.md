@@ -80,7 +80,7 @@ Edit this file to retheme the entire site without touching any other CSS.
 
 ### Fonts
 
-The site uses **Cormorant Garamond** (for display headings and the couple's names) and **Montserrat** (body text), both loaded from Google Fonts. To change fonts, update the `--font-display`, `--font-script` and `--font-body` tokens in `css/tokens.css` and add the corresponding `<link>` in `index.html`.
+The site uses **Cormorant Garamond** (display headings), a script font via `--font-script` (couple's names in the hero), and **DM Sans** (body text), all loaded from Google Fonts. To change fonts, update the `--font-display`, `--font-script` and `--font-body` tokens in `css/tokens.css` and update the `<link>` in `index.html`.
 
 ### Event details (calendar)
 
