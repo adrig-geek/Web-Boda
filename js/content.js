@@ -248,8 +248,8 @@ const STORY_PHOTOS = [
   'assets/images/story/photo4.jpg',
   'assets/images/story/photo5.jpg',
   'assets/images/story/photo6.jpg',
-  // 'assets/images/story/photo7.jpg',
-  // 'assets/images/story/photo8.jpg',
-  // 'assets/images/story/photo9.jpg',
-  // 'assets/images/story/photo10.jpg',
+  'assets/images/story/photo7.jpg',
+  'assets/images/story/photo8.jpg',
+  'assets/images/story/photo9.jpg',
+  'assets/images/story/photo10.jpg',
 ];
