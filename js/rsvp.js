@@ -130,6 +130,12 @@ function initRSVPForm() {
 
     // Re-index guest fields sequentially (fixes gaps from mid-form deletions)
     const rows = [...guestRows.querySelectorAll('.guest-row')];
+
+    // Set hidden name field to first guest's name for Netlify dashboard
+    const submitterField = document.getElementById('submitter-name-field');
+    if (submitterField && rows.length) {
+      submitterField.value = rows[0].querySelector('input[type="text"]')?.value || '';
+    }
     rows.forEach((row, i) => {
       const n = i + 1;
       const nameInput    = row.querySelector('input[type="text"]');
