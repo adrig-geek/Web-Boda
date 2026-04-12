@@ -569,6 +569,20 @@
             <input type="hidden" name="form-name" value="rsvp" />
             <p class="hidden" aria-hidden="true"><input name="bot-field" tabindex="-1" autocomplete="off" /></p>
 
+            <!-- Name -->
+            <div class="form-group">
+              <label for="rsvp-name" data-i18n="rsvp-name-label">Nom i cognoms</label>
+              <input
+                id="rsvp-name"
+                type="text"
+                name="name"
+                data-i18n-ph="rsvp-name-ph"
+                placeholder="El vostre nom complet"
+                required
+                autocomplete="name"
+              />
+            </div>
+
             <!-- Attendance -->
             <div class="form-group">
               <label data-i18n="rsvp-att-label">Assistireu?</label>
