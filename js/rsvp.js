@@ -132,6 +132,13 @@ function initRSVPForm() {
     const childrenField = document.getElementById('has-children-field');
     const guestsTextarea = form.querySelector('textarea[name="guests"]');
     const submitterField = document.getElementById('submitter-name-field');
+    const timestampField = document.getElementById('submitted-at-field');
+    if (timestampField) {
+      timestampField.value = new Date().toLocaleString('es-ES', {
+        day: '2-digit', month: '2-digit', year: 'numeric',
+        hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Madrid',
+      });
+    }
 
     if (!attending) {
       // No attendance — zero out all guest-related fields so CSV stays clean

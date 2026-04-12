@@ -8,7 +8,7 @@ Static wedding website for Èlia & Adrián's wedding on **12 September 2027** at
 - **Live countdown** to the wedding date
 - **RSVP deadline badge** — pill showing days remaining to confirm, turns red in the final 14 days
 - **RSVP form** — dynamic guest list (name, adult/child, dietary needs), submitted via Netlify Forms; bilingual child-guest notice shown automatically when a child is added
-- **Excel-ready Netlify data** — guest fields re-indexed before submit, `guest_count` and `has_children` hidden fields, pipe-formatted guests summary
+- **Excel-ready Netlify data** — guest fields re-indexed before submit, `guest_count`, `has_children` and `submitted_at` hidden fields, pipe-formatted guests summary; dummy registration inputs are `disabled` so `FormData` never sends duplicate values
 - **Save the date** — Google Calendar link and Apple/Outlook `.ics` download shown after RSVP acceptance
 - **Programme / timeline** — horizontal timeline (desktop) with vertical fallback (mobile)
 - **Guest info cards** — transport, accommodation and dress code, each with a styled note chip for secondary info
@@ -114,15 +114,15 @@ The RSVP form uses [Netlify Forms](https://docs.netlify.com/forms/setup/) — no
 Before each submission, `js/rsvp.js` does the following automatically:
 
 - **Re-indexes guest fields** sequentially (`guest_1_*`, `guest_2_*`, …) so deletions mid-form never leave gaps in the Netlify CSV export
-- Sets **`guest_count`** (integer) and **`has_children`** (`Sí` / `No`) as hidden fields — useful as filter columns in Excel
+- Sets **`guest_count`** (integer), **`has_children`** (`Si` / `No`) and **`submitted_at`** (local Madrid time, `dd/mm/yyyy, hh:mm`) as hidden fields — useful as filter/sort columns in Excel
+- When attendance is **No**, all guest-related fields are zeroed so the CSV row stays clean
 - Builds a **pipe-separated `guests` summary** (shown in Netlify email notifications):
 
 ```text
-Nombre                  | Tipo    | Dieta
-------------------------+---------+----------------------
-Joan Pérez              | Adulto  | -
-Maria García            | Niño/a  | Sin gluten
+1. Joan Pérez (adulto) | 2. Maria García (nino/a) - Sin gluten
 ```
+
+> **Note:** The dummy `guest_1_*` … `guest_10_*` inputs used to register field names with Netlify are marked `disabled`, so `FormData` skips them and values are never duplicated in the CSV.
 
 ## Deployment
 
