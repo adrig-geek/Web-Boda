@@ -120,14 +120,17 @@ function initFilmstrip() {
 
   const figures = [...strip.querySelectorAll('figure')];
   const dots    = dotsWrap ? [...dotsWrap.querySelectorAll('.dot')] : [];
-  let current   = 0;
-  let autoTimer = null;
+  let current        = 0;
+  let autoTimer      = null;
+  let isProgrammatic = false;
+  let scrollEndTimer = null;
 
   /* ── Navigate to a specific index ──────────────── */
   function goTo(index) {
     current = (index + figures.length) % figures.length;
     const fig = figures[current];
     const targetLeft = fig.offsetLeft - (strip.clientWidth - fig.offsetWidth) / 2;
+    isProgrammatic = true;
     strip.scrollTo({ left: targetLeft, behavior: 'smooth' });
     updateUI();
   }
@@ -147,6 +150,12 @@ function initFilmstrip() {
 
   /* ── Sync dots when user swipes manually ────────── */
   strip.addEventListener('scroll', () => {
+    // Ignore scroll events fired during a programmatic scrollTo animation
+    if (isProgrammatic) {
+      clearTimeout(scrollEndTimer);
+      scrollEndTimer = setTimeout(() => { isProgrammatic = false; }, 150);
+      return;
+    }
     const stripMid = strip.scrollLeft + strip.clientWidth / 2;
     let closest = 0, minDist = Infinity;
     figures.forEach((fig, i) => {

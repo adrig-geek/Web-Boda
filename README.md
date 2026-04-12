@@ -14,7 +14,7 @@ Static wedding website for Èlia & Adrián's wedding on **12 September 2027** at
 - **Guest info cards** — transport, accommodation and dress code, each with a styled note chip for secondary info
 - **FAQ accordion** — collapsible Q&A for parking, kids, gifts and dietary needs
 - **Active nav underline** — animated underline follows the current scroll section
-- **Photo filmstrip** in the Our Story section — horizontal scroll with arrows, dot indicators and auto-rotate every 6 s (up to 10 photos)
+- **Photo filmstrip** in the Our Story section — horizontal scroll with arrows, dot indicators and auto-rotate every 6 s (up to 10 photos); photos display at natural proportions without cropping
 - Smooth scroll animations and mobile-responsive layout with a hamburger menu
 
 ## Project structure
