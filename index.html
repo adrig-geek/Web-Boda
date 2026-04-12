@@ -609,18 +609,18 @@
             <input type="hidden" name="guest_count"  id="guest-count-field"   value="0" />
             <input type="hidden" name="has_children" id="has-children-field"  value="No" />
 
-            <!-- Netlify field registration — static so Netlify registers all guest columns at deploy time -->
+            <!-- Netlify field registration — disabled so FormData skips them, but Netlify sees them in static HTML -->
             <div aria-hidden="true" style="display:none">
-              <input name="guest_1_name"  /><input name="guest_1_type"  /><input name="guest_1_dietary"  />
-              <input name="guest_2_name"  /><input name="guest_2_type"  /><input name="guest_2_dietary"  />
-              <input name="guest_3_name"  /><input name="guest_3_type"  /><input name="guest_3_dietary"  />
-              <input name="guest_4_name"  /><input name="guest_4_type"  /><input name="guest_4_dietary"  />
-              <input name="guest_5_name"  /><input name="guest_5_type"  /><input name="guest_5_dietary"  />
-              <input name="guest_6_name"  /><input name="guest_6_type"  /><input name="guest_6_dietary"  />
-              <input name="guest_7_name"  /><input name="guest_7_type"  /><input name="guest_7_dietary"  />
-              <input name="guest_8_name"  /><input name="guest_8_type"  /><input name="guest_8_dietary"  />
-              <input name="guest_9_name"  /><input name="guest_9_type"  /><input name="guest_9_dietary"  />
-              <input name="guest_10_name" /><input name="guest_10_type" /><input name="guest_10_dietary" />
+              <input name="guest_1_name"  disabled /><input name="guest_1_type"  disabled /><input name="guest_1_dietary"  disabled />
+              <input name="guest_2_name"  disabled /><input name="guest_2_type"  disabled /><input name="guest_2_dietary"  disabled />
+              <input name="guest_3_name"  disabled /><input name="guest_3_type"  disabled /><input name="guest_3_dietary"  disabled />
+              <input name="guest_4_name"  disabled /><input name="guest_4_type"  disabled /><input name="guest_4_dietary"  disabled />
+              <input name="guest_5_name"  disabled /><input name="guest_5_type"  disabled /><input name="guest_5_dietary"  disabled />
+              <input name="guest_6_name"  disabled /><input name="guest_6_type"  disabled /><input name="guest_6_dietary"  disabled />
+              <input name="guest_7_name"  disabled /><input name="guest_7_type"  disabled /><input name="guest_7_dietary"  disabled />
+              <input name="guest_8_name"  disabled /><input name="guest_8_type"  disabled /><input name="guest_8_dietary"  disabled />
+              <input name="guest_9_name"  disabled /><input name="guest_9_type"  disabled /><input name="guest_9_dietary"  disabled />
+              <input name="guest_10_name" disabled /><input name="guest_10_type" disabled /><input name="guest_10_dietary" disabled />
             </div>
 
             <!-- Message -->
