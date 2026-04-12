@@ -151,25 +151,18 @@ function initRSVPForm() {
     const childrenField = document.getElementById('has-children-field');
     if (countField)    countField.value    = rows.length;
     if (childrenField) childrenField.value =
-      rows.some(r => r.querySelector('input[value="child"]:checked')) ? 'Sí' : 'No';
+      rows.some(r => r.querySelector('input[value="child"]:checked')) ? 'Si' : 'No';
 
-    // Serialise guests into a readable pipe-separated table for Netlify email
+    // Serialise guests for Netlify email
     const guestsTextarea = form.querySelector('textarea[name="guests"]');
     if (guestsTextarea) {
-      if (rows.length) {
-        const header  = 'Nombre                  | Tipo    | Dieta';
-        const divider = '-'.repeat(24) + '+' + '-'.repeat(9) + '+' + '-'.repeat(22);
-        const lines   = rows.map(row => {
-          const name    = (row.querySelector('input[type="text"]')?.value || '').padEnd(23);
-          const isChild = row.querySelector('input[value="child"]:checked') !== null;
-          const type    = (isChild ? 'Niño/a' : 'Adulto').padEnd(7);
-          const dietary = row.querySelector('.guest-row-dietary input')?.value || '-';
-          return `${name} | ${type} | ${dietary}`;
-        });
-        guestsTextarea.value = [header, divider, ...lines].join('\n');
-      } else {
-        guestsTextarea.value = '';
-      }
+      guestsTextarea.value = rows.map((row, i) => {
+        const name    = row.querySelector('input[type="text"]')?.value || '';
+        const isChild = row.querySelector('input[value="child"]:checked') !== null;
+        const type    = isChild ? 'nino/a' : 'adulto';
+        const dietary = row.querySelector('.guest-row-dietary input')?.value || '';
+        return `${i + 1}. ${name} (${type})${dietary ? ' - ' + dietary : ''}`;
+      }).join('\n');
     }
 
     try {
