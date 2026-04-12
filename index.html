@@ -609,6 +609,20 @@
             <input type="hidden" name="guest_count"  id="guest-count-field"   value="0" />
             <input type="hidden" name="has_children" id="has-children-field"  value="No" />
 
+            <!-- Netlify field registration — static so Netlify registers all guest columns at deploy time -->
+            <div aria-hidden="true" style="display:none">
+              <input name="guest_1_name"  /><input name="guest_1_type"  /><input name="guest_1_dietary"  />
+              <input name="guest_2_name"  /><input name="guest_2_type"  /><input name="guest_2_dietary"  />
+              <input name="guest_3_name"  /><input name="guest_3_type"  /><input name="guest_3_dietary"  />
+              <input name="guest_4_name"  /><input name="guest_4_type"  /><input name="guest_4_dietary"  />
+              <input name="guest_5_name"  /><input name="guest_5_type"  /><input name="guest_5_dietary"  />
+              <input name="guest_6_name"  /><input name="guest_6_type"  /><input name="guest_6_dietary"  />
+              <input name="guest_7_name"  /><input name="guest_7_type"  /><input name="guest_7_dietary"  />
+              <input name="guest_8_name"  /><input name="guest_8_type"  /><input name="guest_8_dietary"  />
+              <input name="guest_9_name"  /><input name="guest_9_type"  /><input name="guest_9_dietary"  />
+              <input name="guest_10_name" /><input name="guest_10_type" /><input name="guest_10_dietary" />
+            </div>
+
             <!-- Message -->
             <div class="form-group">
               <label for="rsvp-message" data-i18n="rsvp-message-label">Missatge per als nuvis</label>

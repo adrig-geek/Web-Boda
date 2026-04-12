@@ -128,41 +128,50 @@ function initRSVPForm() {
       submitBtn.textContent = '...';
     }
 
-    // Re-index guest fields sequentially (fixes gaps from mid-form deletions)
-    const rows = [...guestRows.querySelectorAll('.guest-row')];
-
-    // Set hidden name field to first guest's name for Netlify dashboard
-    const submitterField = document.getElementById('submitter-name-field');
-    if (submitterField && rows.length) {
-      submitterField.value = rows[0].querySelector('input[type="text"]')?.value || '';
-    }
-    rows.forEach((row, i) => {
-      const n = i + 1;
-      const nameInput    = row.querySelector('input[type="text"]');
-      const typeRadios   = row.querySelectorAll('input[type="radio"]');
-      const dietaryInput = row.querySelector('.guest-row-dietary input');
-      if (nameInput)    nameInput.name    = `guest_${n}_name`;
-      typeRadios.forEach(r => r.name     = `guest_${n}_type`);
-      if (dietaryInput) dietaryInput.name = `guest_${n}_dietary`;
-    });
-
-    // Set guest_count and has_children hidden fields
     const countField    = document.getElementById('guest-count-field');
     const childrenField = document.getElementById('has-children-field');
-    if (countField)    countField.value    = rows.length;
-    if (childrenField) childrenField.value =
-      rows.some(r => r.querySelector('input[value="child"]:checked')) ? 'Si' : 'No';
-
-    // Serialise guests for Netlify email
     const guestsTextarea = form.querySelector('textarea[name="guests"]');
-    if (guestsTextarea) {
-      guestsTextarea.value = rows.map((row, i) => {
-        const name    = row.querySelector('input[type="text"]')?.value || '';
-        const isChild = row.querySelector('input[value="child"]:checked') !== null;
-        const type    = isChild ? 'nino/a' : 'adulto';
-        const dietary = row.querySelector('.guest-row-dietary input')?.value || '';
-        return `${i + 1}. ${name} (${type})${dietary ? ' - ' + dietary : ''}`;
-      }).join('\n');
+    const submitterField = document.getElementById('submitter-name-field');
+
+    if (!attending) {
+      // No attendance — zero out all guest-related fields so CSV stays clean
+      if (submitterField)  submitterField.value  = '';
+      if (countField)      countField.value      = '0';
+      if (childrenField)   childrenField.value   = 'No';
+      if (guestsTextarea)  guestsTextarea.value  = '';
+    } else {
+      // Re-index guest fields sequentially (fixes gaps from mid-form deletions)
+      const rows = [...guestRows.querySelectorAll('.guest-row')];
+
+      // Set hidden name field to first guest's name for Netlify dashboard
+      if (submitterField && rows.length) {
+        submitterField.value = rows[0].querySelector('input[type="text"]')?.value || '';
+      }
+      rows.forEach((row, i) => {
+        const n = i + 1;
+        const nameInput    = row.querySelector('input[type="text"]');
+        const typeRadios   = row.querySelectorAll('input[type="radio"]');
+        const dietaryInput = row.querySelector('.guest-row-dietary input');
+        if (nameInput)    nameInput.name    = `guest_${n}_name`;
+        typeRadios.forEach(r => r.name     = `guest_${n}_type`);
+        if (dietaryInput) dietaryInput.name = `guest_${n}_dietary`;
+      });
+
+      // Set guest_count and has_children hidden fields
+      if (countField)    countField.value    = rows.length;
+      if (childrenField) childrenField.value =
+        rows.some(r => r.querySelector('input[value="child"]:checked')) ? 'Si' : 'No';
+
+      // Serialise guests for Netlify email
+      if (guestsTextarea) {
+        guestsTextarea.value = rows.map((row, i) => {
+          const name    = row.querySelector('input[type="text"]')?.value || '';
+          const isChild = row.querySelector('input[value="child"]:checked') !== null;
+          const type    = isChild ? 'nino/a' : 'adulto';
+          const dietary = row.querySelector('.guest-row-dietary input')?.value || '';
+          return `${i + 1}. ${name} (${type})${dietary ? ' - ' + dietary : ''}`;
+        }).join(' | ');
+      }
     }
 
     try {
