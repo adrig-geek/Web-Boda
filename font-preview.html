@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Font Preview — Èlia & Adrián</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Pinyon+Script&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@1,400&family=Ephesis&family=Sacramento&family=Dancing+Script:wght@400&family=Parisienne&family=Tangerine:wght@400;700&family=Italianno&family=Monsieur+La+Doulaise&family=Carattere&family=Ms+Madi&family=Waterfall&family=Ruthie&family=Lovers+Quarrel&family=Herr+Von+Muellerhoff&family=Niconne&family=Marck+Script&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #F6F8F3;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: #0F1209;
+      padding: 48px 24px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #4A5645;
+      margin-bottom: 48px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #C2CAB8;
+      border-radius: 16px;
+      padding: 36px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      transition: border-color 0.2s;
+    }
+
+    .card:hover {
+      border-color: #2E4230;
+    }
+
+    .name {
+      font-size: 72px;
+      line-height: 1.1;
+      color: #2E4230;
+      text-align: center;
+    }
+
+    .name .amp {
+      color: #7B9070;
+      font-size: 0.8em;
+    }
+
+    .label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #4A5645;
+      background: #EDF0E9;
+      border-radius: 100px;
+      padding: 5px 16px;
+    }
+
+    .tag-current {
+      font-size: 10px;
+      color: #2E4230;
+      border: 1px solid #2E4230;
+      border-radius: 100px;
+      padding: 2px 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── Fonts ── */
+    .f-alex-brush       { font-family: 'Alex Brush', cursive; }
+    .f-allura           { font-family: 'Allura', cursive; }
+    .f-pinyon           { font-family: 'Pinyon Script', cursive; }
+    .f-great-vibes      { font-family: 'Great Vibes', cursive; }
+    .f-cormorant-italic { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; }
+    .f-ephesis          { font-family: 'Ephesis', cursive; }
+    .f-sacramento       { font-family: 'Sacramento', cursive; }
+    .f-dancing          { font-family: 'Dancing Script', cursive; }
+    .f-parisienne       { font-family: 'Parisienne', cursive; }
+    .f-tangerine          { font-family: 'Tangerine', cursive; font-size: 100px !important; font-weight: 700; }
+    .f-italianno          { font-family: 'Italianno', cursive; }
+    .f-monsieur           { font-family: 'Monsieur La Doulaise', cursive; }
+    .f-carattere          { font-family: 'Carattere', cursive; }
+    .f-ms-madi            { font-family: 'Ms Madi', cursive; }
+    .f-waterfall          { font-family: 'Waterfall', cursive; }
+    .f-ruthie             { font-family: 'Ruthie', cursive; font-size: 96px !important; }
+    .f-lovers-quarrel     { font-family: 'Lovers Quarrel', cursive; font-size: 96px !important; }
+    .f-herr-von           { font-family: 'Herr Von Muellerhoff', cursive; font-size: 96px !important; }
+    .f-niconne            { font-family: 'Niconne', cursive; }
+    .f-marck              { font-family: 'Marck Script', cursive; }
+  </style>
+</head>
+<body>
+
+  <h1>Elige la fuente — Èlia &amp; Adrián</h1>
+
+  <div class="grid">
+
+    <div class="card">
+      <p class="name f-alex-brush">Èlia <span class="amp">&amp;</span> Adrián</p>
+      <span class="label">Alex Brush</span>
+      <span class="tag-current">actual</span>
+    </div>
+
+    <div class="card">
+      <p class="name f-allura">Èlia <span class="amp">&amp;</span> Adrián</p>
+      <span class="label">Allura</span>
+    </div>
+
+    <div class="card">
+      <p class="name f-pinyon">Èlia <span class="amp">&amp;</span> Adrián</p>
+      <span class="label">Pinyon Script</span>
+    </div>
+
+    <div class="card">
+      <p class="name f-great-vibes">Èlia <span class="amp">&amp;</span> Adrián</p>
+      <span class="label">Great Vibes</span>
+    </div>
+
+    <div class="card">
+      <p class="name f-cormorant-italic">Èlia <span class="amp">&amp;</span> Adrián</p>
+      <span class="label">Cormorant Garamond Italic</span>
+    </div>
+
+    <div class="card">
+      <p class="name f-ephesis">Èlia <span class="amp">&amp;</span> Adrián</p>
+      <span class="label">Ephesis</span>
+    </div>
+
+    <div class="card">
+      <p class="name f-sacramento">Èlia <span class="amp">&amp;</span> Adrián</p>
+      <span class="label">Sacramento</span>
+    </div>
+
+    <div class="card">
+      <p class="name f-dancing">Èlia <span class="amp">&amp;</span> Adrián</p>
+      <span class="label">Dancing Script</span>
+    </div>
+
+    <div class="card">
+      <p class="name f-parisienne">Èlia <span class="amp">&amp;</span> Adrián</p>
+      <span class="label">Parisienne</span>
+    </div>
+
+    <div class="card">
+      <p class="name f-tangerine">Èlia <span class="amp">&amp;</span> Adrián</p>
+      <span class="label">Tangerine Bold</span>
+    </div>
+
+    <div class="card">
+      <p class="name f-italianno">Èlia <span class="amp">&amp;</span> Adrián</p>
+      <span class="label">Italianno</span>
+    </div>
+
+    <div class="card">
+      <p class="name f-monsieur">Èlia <span class="amp">&amp;</span> Adrián</p>
+      <span class="label">Monsieur La Doulaise</span>
+    </div>
+
+    <div class="card">
+      <p class="name f-carattere">Èlia <span class="amp">&amp;</span> Adrián</p>
+      <span class="label">Carattere</span>
+    </div>
+
+    <div class="card">
+      <p class="name f-ms-madi">Èlia <span class="amp">&amp;</span> Adrián</p>
+      <span class="label">Ms Madi</span>
+    </div>
+
+    <div class="card">
+      <p class="name f-waterfall">Èlia <span class="amp">&amp;</span> Adrián</p>
+      <span class="label">Waterfall</span>
+    </div>
+
+    <div class="card">
+      <p class="name f-ruthie">Èlia <span class="amp">&amp;</span> Adrián</p>
+      <span class="label">Ruthie</span>
+    </div>
+
+    <div class="card">
+      <p class="name f-lovers-quarrel">Èlia <span class="amp">&amp;</span> Adrián</p>
+      <span class="label">Lovers Quarrel</span>
+    </div>
+
+    <div class="card">
+      <p class="name f-herr-von">Èlia <span class="amp">&amp;</span> Adrián</p>
+      <span class="label">Herr Von Muellerhoff</span>
+    </div>
+
+    <div class="card">
+      <p class="name f-niconne">Èlia <span class="amp">&amp;</span> Adrián</p>
+      <span class="label">Niconne</span>
+    </div>
+
+    <div class="card">
+      <p class="name f-marck">Èlia <span class="amp">&amp;</span> Adrián</p>
+      <span class="label">Marck Script</span>
+    </div>
+
+  </div>
+
+</body>
+</html>

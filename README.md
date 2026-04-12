@@ -7,7 +7,7 @@ Static wedding website for Èlia & Adrián's wedding on **12 September 2027** at
 - **Bilingual** — Catalan / Spanish toggle, persisted via `localStorage`
 - **Live countdown** to the wedding date
 - **RSVP deadline badge** — pill showing days remaining to confirm, turns red in the final 14 days
-- **RSVP form** — dynamic guest list (name, adult/child, dietary needs), submitted via Netlify Forms; child-guest notice shown automatically when a Niño/a is added
+- **RSVP form** — dynamic guest list (name, adult/child, dietary needs), submitted via Netlify Forms; bilingual child-guest notice shown automatically when a child is added
 - **Excel-ready Netlify data** — guest fields re-indexed before submit, `guest_count` and `has_children` hidden fields, pipe-formatted guests summary
 - **Save the date** — Google Calendar link and Apple/Outlook `.ics` download shown after RSVP acceptance
 - **Programme / timeline** — horizontal timeline (desktop) with vertical fallback (mobile)
@@ -19,7 +19,7 @@ Static wedding website for Èlia & Adrián's wedding on **12 September 2027** at
 
 ## Project structure
 
-```
+```text
 ├── index.html              # Main page
 │
 ├── css/

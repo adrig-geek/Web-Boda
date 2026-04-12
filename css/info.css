@@ -160,3 +160,9 @@
   color: var(--color-text-muted);
   line-height: 1.75;
 }
+
+.faq-answer p a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
