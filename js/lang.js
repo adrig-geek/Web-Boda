@@ -48,6 +48,7 @@ function applyLanguage(lang) {
   // Refresh any dynamically generated UI that caches translations
   if (window._refreshGuestLabels)  window._refreshGuestLabels();
   if (window._refreshDeadlineBadge) window._refreshDeadlineBadge();
+  if (window._renderHotels)         window._renderHotels();
 
   // Update the language toggle button label
   const langBtn = document.getElementById('lang-toggle');

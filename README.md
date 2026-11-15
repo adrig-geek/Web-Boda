@@ -12,6 +12,7 @@ Static wedding website for Èlia & Adrián's wedding on **12 September 2027** at
 - **Save the date** — Google Calendar link and Apple/Outlook `.ics` download shown after RSVP acceptance
 - **Programme / timeline** — horizontal timeline (desktop) with vertical fallback (mobile)
 - **Guest info cards** — transport, accommodation and dress code, each with a styled note chip for secondary info
+- **Recommended hotels** — list inside the accommodation card (name → website, drive time, approx. price per night, optional discount note and Google Maps button), built from `HOTELS` in `content.js`
 - **FAQ accordion** — collapsible Q&A for parking, kids, gifts and dietary needs
 - **Active nav underline** — animated underline follows the current scroll section
 - **Photo filmstrip** in the Our Story section — horizontal scroll with arrows, dot indicators and auto-rotate every 6 s (up to 10 photos); photos display at natural proportions without cropping
@@ -106,6 +107,25 @@ const STORY_PHOTOS = [
 2. Add or uncomment its line in `STORY_PHOTOS`
 
 The filmstrip (scroll, arrows, dots, auto-rotate) rebuilds itself from the list. Supports up to 10 photos.
+
+### Recommended hotels
+
+Hotels in the "Where to stay?" card are managed from `js/content.js`:
+
+```js
+const SHOW_HOTEL_MAPS = true;   // false hides the Google Maps button
+
+const HOTELS = [
+  { name: 'Hotel Molí de la Torre', url: '…', maps: '…', minutes: 5, price: 155,
+    promo: 'hotel-moli-promo' },   // optional
+  // …
+];
+```
+
+- `minutes` — drive time to Can Ribas · `price` — approx. € per night
+- `promo` *(optional)* — translation key of a discount note shown under the hotel (HTML allowed, e.g. `<strong>` for the code). Currently used for the Molí de la Torre code **CR2027** (10 %, 15 % for 2 nights).
+
+Drive time and price labels are translated via the `hotel-drive` / `hotel-price` / `hotel-map` keys.
 
 ## Netlify Forms
 

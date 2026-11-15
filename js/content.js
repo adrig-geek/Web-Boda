@@ -100,8 +100,11 @@ const TRANSLATIONS = {
     'news-1-body':  'Per l\'Autopista C-17, sortiu a l\'Ametlla del Vallès (Sortida 3) direcció Bigues i Riells i seguiu els indicadors de Can Ribas.',
     'news-1-note': 'No teniu cotxe? Contacteu-nos! Podem ajudar a organitzar alguna alternativa.',
     'news-2-title': 'On dormir?',
-    'news-2-body':  'Hi ha molts hotels a prop de Can Ribas si voleu allotjar-vos.',
-    'news-2-note':  'Aviat donarem més informació sobre els que recomanem 😊',
+    'news-2-body':  'Si voleu allotjar-vos a prop de Can Ribas, aquests són els hotels que us recomanem:',
+    'hotel-drive':  '{n} min amb cotxe',
+    'hotel-price':  'aprox.\u00A0{p}\u00A0€/nit',
+    'hotel-map':    'Veure al mapa',
+    'hotel-moli-promo': 'Reserveu a la seva web fent servir el codi <strong>CR2027</strong>: 10 % de descompte (15 % si són 2 nits).',
     'news-3-title': 'Com vestir?',
     'news-3-body':  'El codi de vestimenta és formal i elegant.<br>Teniu en compte que part de la celebració podrà ser a l\'aire lliure.',
     'news-3-note':  'Per cedir el protagonisme als nuvis, us demanem un petit favor: eviteu el blanc.',
@@ -214,8 +217,11 @@ const TRANSLATIONS = {
     'news-1-body':  'En la Autovía C-17, salid en la Ametlla del Vallès (Salida 3) dirección Bigues i Riells y seguir indicaciones Can Ribas.',
     'news-1-note': '¿No tienes coche? ¡Contáctanos! Podemos ayudar a organizar alguna alternativa.',
     'news-2-title': '¿Dónde dormir?',
-    'news-2-body':  'Existen muchos hoteles cerca de Can Ribas si queréis alojaros.',
-    'news-2-note':  'Próximamente daremos más información sobre los que recomendamos 😊',
+    'news-2-body':  'Si queréis alojaros cerca de Can Ribas, estos son los hoteles que os recomendamos:',
+    'hotel-drive':  '{n} min en coche',
+    'hotel-price':  'aprox.\u00A0{p}\u00A0€/noche',
+    'hotel-map':    'Ver en el mapa',
+    'hotel-moli-promo': 'Reservad en su web usando el código <strong>CR2027</strong>: 10 % de descuento (15 % si son 2 noches).',
     'news-3-title': '¿Cómo vestir?',
     'news-3-body':  'El código de vestimenta es formal y elegante.<br>Tened en cuenta que parte de la celebración podrá ser al aire libre.',
     'news-3-note':  'Para ceder el protagonismo a los novios, os pedimos un pequeño favor: evitad el blanco.',
@@ -252,4 +258,38 @@ const STORY_PHOTOS = [
   'assets/images/story/photo8.jpg',
   'assets/images/story/photo9.jpg',
   'assets/images/story/photo10.jpg',
+];
+
+
+/* ── Recommended hotels ("Where to stay?" card) ──────
+ * ★ Add, remove or edit hotels here.
+ *   minutes = drive time to Can Ribas · price = approx. € per night
+ *   promo (optional) = translation key for a discount note shown below the hotel
+ *   SHOW_HOTEL_MAPS: true → adds a "map" link next to each hotel
+ * ─────────────────────────────────────────────────── */
+const SHOW_HOTEL_MAPS = true;
+
+const HOTELS = [
+  {
+    name:    'Hotel Molí de la Torre',
+    url:     'https://www.molidelatorre.cat/',
+    maps:    'https://www.google.com/maps/search/?api=1&query=Hotel+Mol%C3%AD+de+la+Torre',
+    minutes: 5,
+    price:   155,
+    promo:   'hotel-moli-promo',
+  },
+  {
+    name:    'Blancafort Spa Termal',
+    url:     'https://www.hotelblancafort.com/es/',
+    maps:    'https://www.google.com/maps/search/?api=1&query=Hotel+Blancafort+Spa+Termal+La+Garriga',
+    minutes: 20,
+    price:   155,
+  },
+  {
+    name:    'B&B HOTEL Barcelona Granollers',
+    url:     'https://www.hotel-bb.com/es/hotel/barcelona-granollers',
+    maps:    'https://www.google.com/maps/search/?api=1&query=B%26B+HOTEL+Barcelona+Granollers',
+    minutes: 25,
+    price:   80,
+  },
 ];
