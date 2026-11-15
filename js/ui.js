@@ -213,3 +213,65 @@ function equalizeTimelineSlots() {
   tops.forEach(el    => el.style.height = maxTop    + 'px');
   bottoms.forEach(el => el.style.height = maxBottom + 'px');
 }
+
+/* ── Recommended hotels (built from HOTELS in content.js) ── */
+function initHotels() {
+  const list = document.getElementById('hotel-list');
+  if (!list || typeof HOTELS === 'undefined' || !HOTELS.length) return;
+
+  const mapIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>`;
+
+  function render() {
+    const tr = TRANSLATIONS[currentLang];
+    list.innerHTML = '';
+
+    HOTELS.forEach(hotel => {
+      const li = document.createElement('li');
+      li.className = 'hotel-item';
+
+      const info = document.createElement('div');
+      info.className = 'hotel-info';
+
+      const name = document.createElement('a');
+      name.className = 'hotel-name';
+      name.href      = hotel.url;
+      name.target    = '_blank';
+      name.rel       = 'noopener noreferrer';
+      name.textContent = hotel.name;
+
+      const meta = document.createElement('span');
+      meta.className = 'hotel-meta';
+      meta.textContent = [
+        tr['hotel-drive'].replace('{n}', hotel.minutes),
+        tr['hotel-price'].replace('{p}', hotel.price),
+      ].join(' · ');
+
+      info.append(name, meta);
+
+      if (hotel.promo && tr[hotel.promo]) {
+        const promo = document.createElement('p');
+        promo.className = 'hotel-promo';
+        promo.innerHTML = tr[hotel.promo];
+        info.appendChild(promo);
+      }
+      li.appendChild(info);
+
+      if (SHOW_HOTEL_MAPS && hotel.maps) {
+        const map = document.createElement('a');
+        map.className = 'hotel-map';
+        map.href      = hotel.maps;
+        map.target    = '_blank';
+        map.rel       = 'noopener noreferrer';
+        map.title     = tr['hotel-map'];
+        map.setAttribute('aria-label', `${tr['hotel-map']}: ${hotel.name}`);
+        map.innerHTML = mapIcon;
+        li.appendChild(map);
+      }
+
+      list.appendChild(li);
+    });
+  }
+
+  render();
+  window._renderHotels = render;
+}

@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveNav();
   initFAQ();
   initFilmstrip();
+  initHotels();
   equalizeTimelineSlots();
   window.addEventListener('resize', equalizeTimelineSlots);
 });
